@@ -66,6 +66,6 @@ if has("gui_running")
 endif
 
 " plugins 
-nnoremap <leader>f :FufFile<CR>
+nnoremap <leader>f :FufCoverageFile<CR>
 nnoremap <leader>b :FufBuffer<CR>
 nnoremap <leader>d :FufDir<CR>

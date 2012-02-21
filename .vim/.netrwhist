@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/sites/fogtest/testapp/templates/testapp'
+let g:netrw_dirhist_2='/Users/nimbus/django-fogbugz-gadget/.git'
+let g:netrw_dirhist_3='/sites/Stratus/src/altostratus/stratus/admin/views'
+let g:netrw_dirhist_4='/sites/Stratus/src/altostratus/stratus/templates/stratus/admin/widgets'
+let g:netrw_dirhist_5='/Users/nimbus/django-fogbugz-gadget/django_fogbugz_gadget'
+let g:netrw_dirhist_6='/sites/symposium2'
+let g:netrw_dirhist_7='/sites'
+let g:netrw_dirhist_8='/sites/symposium2/pyenv/lib/python2.6/site-packages/django/contrib/admin/media/js'
+let g:netrw_dirhist_9='/sites/sandersnewmedia/src/sandersnewmedia/templates/zinnia'
