@@ -56,16 +56,15 @@ if has("gui_running")
   set guioptions-=T
   set guioptions-=L
   set showtabline=1
-  colorscheme ir_black
-  set bg=dark
+  set bg=light
+  colorscheme macvim 
   if has("gui_macvim")
-		"set guifont=monaco:h10
-		"set noantialias
     set fuopt=maxvert,maxhorz     
   endif
 endif
 
 " plugins 
-nnoremap <leader>f :FufCoverageFile<CR>
+nnoremap <leader>f :FufFile<CR>
+nnoremap <leader>F :FufCoverageFile<CR>
 nnoremap <leader>b :FufBuffer<CR>
 nnoremap <leader>d :FufDir<CR>
