@@ -55,9 +55,10 @@ nnoremap ; :
 if has("gui_running")
   set guioptions-=T
   set guioptions-=L
+  set guioptions-=r
   set showtabline=1
   set bg=light
-  colorscheme macvim 
+  colorscheme blue 
   if has("gui_macvim")
     set fuopt=maxvert,maxhorz     
   endif
