@@ -43,6 +43,7 @@ set hlsearch
 nnoremap <leader>c :set cursorline! cursorline?<CR>
 nnoremap <leader>h :set hlsearch! hlsearch?<CR>
 nnoremap <leader>s :set nolist! nolist?<CR>
+nnoremap <leader>n :if &relativenumber==1<Bar>set number<Bar>else<Bar>set relativenumber<Bar>endif<CR>
 nnoremap <leader>r :if &guioptions=~#'r'<Bar>set guioptions-=r<Bar>else<Bar>set guioptions+=r<Bar>endif<CR>
 
 " whitespace chars
@@ -66,6 +67,5 @@ endif
 
 " plugins 
 nnoremap <leader>f :FufFile<CR>
-nnoremap <leader>F :FufCoverageFile<CR>
 nnoremap <leader>b :FufBuffer<CR>
 nnoremap <leader>d :FufDir<CR>
