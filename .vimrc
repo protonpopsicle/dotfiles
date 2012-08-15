@@ -58,7 +58,7 @@ if has("gui_running")
   set guioptions-=L
   set guioptions-=r
   set showtabline=1
-  set bg=light
+  set bg=dark
   colorscheme macvim 
   if has("gui_macvim")
     set fuopt=maxvert,maxhorz     
