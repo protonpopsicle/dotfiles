@@ -1,11 +1,3 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='/sites/merge-ipad/merge-ipad/merge-ipad.xcodeproj'
-let g:netrw_dirhist_2='/sites/merge-ipad/merge-ipad/merge-ipad/Vendors/FastPdfKit'
-let g:netrw_dirhist_3='/sites/merge-ipad/merge-ipad/merge-ipad/Vendors'
-let g:netrw_dirhist_4='/sites/merge-ipad/merge-ipad/merge-ipad'
-let g:netrw_dirhist_5='/sites/merge-ipad/merge-ipad'
-let g:netrw_dirhist_6='/sites/merge-ipad'
-let g:netrw_dirhist_7='/sites'
-let g:netrw_dirhist_8='/sites/merge-ipad-server/merge_server/documents'
-let g:netrw_dirhist_9='/sites/dittybop-server/dittybop_server/config'
+let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_1='/sites/dittybop-server/dittybop_server/turns'
