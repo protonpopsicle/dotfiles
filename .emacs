@@ -1,3 +1,4 @@
+
 ;; packages
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
@@ -5,8 +6,8 @@
 (package-initialize)
 
 (setq load-path (cons "~/tidal/" load-path))
-(require 'tidal)
-(setq tidal-interpreter "/usr/local/bin/ghci")
+(when (require 'tidal nil 'noerror)
+  (setq tidal-interpreter "/usr/local/bin/ghci"))
 
 ;; disable auto-save and auto-backup
 (setq auto-save-default nil)
@@ -38,16 +39,18 @@
 (setq image-dired-external-viewer "open")
 
 ;; theme
+(require 'cyberpunk-theme)
 (load-theme 'cyberpunk t)
 
 ;; spellcheck
 (setq ispell-program-name "aspell")
 
 ;; path stuff
-(setenv "PATH" (concat (getenv "PATH") ":/usr/texbin"))
+(setenv "PATH" (concat (getenv "PATH") ":/usr/texbin:/usr/local/git/bin:/usr/local/bin:/usr/local/sbin"))
 (add-to-list 'exec-path "/usr/local/bin")
 (add-to-list 'exec-path "/usr/texbin")
 
+(require 'projectile)
 (projectile-global-mode)
 (define-key projectile-mode-map [?\s-d] 'projectile-find-dir)
 (define-key projectile-mode-map [?\s-p] 'projectile-switch-project)
@@ -69,13 +72,19 @@
 (define-key global-map [?\s-b] 'switch-to-buffer)
 
 (ido-mode t)
+
+(require 'ido-vertical-mode)
 (ido-vertical-mode 1)
+
 ;; (setq id-enable-flex-matching t)
 (ido-everywhere 1)
+
+(require 'flx-ido)
 (flx-ido-mode 1)
 ;; disable ido faces to see flx highlights.
 ;; (setq ido-use-faces nil)
 
+(require 'auto-complete)
 (global-auto-complete-mode t)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
