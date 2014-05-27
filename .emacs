@@ -1,5 +1,3 @@
-
-;; packages
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
@@ -22,6 +20,10 @@
 (setq use-dialog-box nil)
 (menu-bar-mode -1)
 (tool-bar-mode -1)
+
+(setq default-frame-alist '(
+                (width . 106)
+                (height . 47)))
 
 ;; org
 (define-key global-map "\C-ca" 'org-agenda)
@@ -61,15 +63,17 @@
 
 (show-paren-mode 1)
 
-
 (delete-selection-mode 1)
 
 (set-default 'cursor-type '(bar . 1))
 
 (global-auto-revert-mode 1)
 
-(global-set-key (kbd "C-x C-b") 'ibuffer)
-(define-key global-map [?\s-b] 'switch-to-buffer)
+;; (global-set-key (kbd "C-x C-b") 'ibuffer)
+(define-key global-map [?\s-b] 'ibuffer)
+
+(require 'sml-modeline)
+(sml-modeline-mode 1)
 
 (ido-mode t)
 
@@ -82,7 +86,8 @@
 (require 'flx-ido)
 (flx-ido-mode 1)
 ;; disable ido faces to see flx highlights.
-;; (setq ido-use-faces nil)
+;;(setq ido-use-faces nil)
+(setq flx-ido-use-faces nil)
 
 (require 'auto-complete)
 (global-auto-complete-mode t)
@@ -100,3 +105,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+
+(defun linum-on ()
+  (linum-mode 1))
+
+(add-hook 'python-mode-hook 'linum-on)
