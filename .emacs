@@ -54,14 +54,11 @@
 
 (require 'projectile)
 (projectile-global-mode)
-(define-key projectile-mode-map [?\s-d] 'projectile-find-dir)
 (define-key projectile-mode-map [?\s-p] 'projectile-switch-project)
 (define-key projectile-mode-map [?\s-f] 'projectile-find-file)
 (define-key projectile-mode-map [?\s-g] 'projectile-grep)
 
 (setq-default line-spacing .15)
-
-(show-paren-mode 1)
 
 (delete-selection-mode 1)
 
@@ -106,8 +103,32 @@
  ;; If there is more than one, they won't work right.
  )
 
-
 (defun linum-on ()
   (linum-mode 1))
 
 (add-hook 'python-mode-hook 'linum-on)
+(add-hook 'python-mode-hook (lambda () (show-paren-mode 1)))
+(add-hook 'emacs-lisp-mode (lambda () (show-paren-mode 1)))
+
+;; nice scrolling
+(setq scroll-margin 0
+      scroll-conservatively 100000
+      scroll-preserve-screen-position 1)
+
+;; mode line settings
+(line-number-mode t)
+(column-number-mode t)
+(size-indication-mode t)
+
+;; make the fringe (gutter) smaller
+;; the argument is a width in pixels (the default is 8)
+(if (fboundp 'fringe-mode)
+    (fringe-mode 4))
+
+;; enable y/n answers
+(fset 'yes-or-no-p 'y-or-n-p)
+
+;; diminish keeps the modeline tidy
+(when (require 'diminish nil 'noerror)
+  (eval-after-load "projectile"
+      '(diminish 'projectile-mode "︻╦╤─")))
