@@ -129,6 +129,6 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
 ;; diminish keeps the modeline tidy
-(when (require 'diminish nil 'noerror)
-  (eval-after-load "projectile"
-      '(diminish 'projectile-mode "︻╦╤─")))
+;; (when (require 'diminish nil 'noerror)
+;;   (eval-after-load "projectile"
+;;       '(diminish 'projectile-mode "︻╦╤─")))
