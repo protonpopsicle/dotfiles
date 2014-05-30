@@ -57,6 +57,9 @@
 (define-key projectile-mode-map [?\s-p] 'projectile-switch-project)
 (define-key projectile-mode-map [?\s-f] 'projectile-find-file)
 (define-key projectile-mode-map [?\s-g] 'projectile-grep)
+(define-key projectile-mode-map [?\s-b] 'projectile-switch-to-buffer)
+
+(setq projectile-switch-project-action 'projectile-dired)
 
 (setq-default line-spacing .15)
 
@@ -66,8 +69,7 @@
 
 (global-auto-revert-mode 1)
 
-;; (global-set-key (kbd "C-x C-b") 'ibuffer)
-(define-key global-map [?\s-b] 'ibuffer)
+(global-set-key (kbd "C-x C-b") 'ibuffer)
 
 (require 'sml-modeline)
 (sml-modeline-mode 1)
@@ -82,9 +84,9 @@
 
 (require 'flx-ido)
 (flx-ido-mode 1)
-;; disable ido faces to see flx highlights.
-;;(setq ido-use-faces nil)
-(setq flx-ido-use-faces nil)
+
+;; disable flx highlights.
+;; (setq flx-ido-use-faces nill)
 
 (require 'auto-complete)
 (global-auto-complete-mode t)
