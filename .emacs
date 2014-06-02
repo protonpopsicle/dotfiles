@@ -108,7 +108,7 @@
 (defun linum-on ()
   (linum-mode 1))
 
-(add-hook 'python-mode-hook 'linum-on)
+;;(add-hook 'python-mode-hook 'linum-on)
 (add-hook 'python-mode-hook (lambda () (show-paren-mode 1)))
 (add-hook 'emacs-lisp-mode (lambda () (show-paren-mode 1)))
 
