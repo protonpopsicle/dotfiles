@@ -1,6 +1,10 @@
 export PATH=~/.cabal/bin:/usr/local/bin:/usr/local/mysql/bin:$PATH
 export CFLAGS=-Qunused-arguments
 export CPPFLAGS=-Qunused-arguments
+export PYTHONDONTWRITEBYTECODE=True
+alias la='ls -aGF'
+alias ll='la -l'
+
 
 #### automatically activate virtualenvs named 'venv'
 #### just put this at the end of your ~/.bashrc file

@@ -71,8 +71,8 @@
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
-(require 'sml-modeline)
-(sml-modeline-mode 1)
+;;(require 'sml-modeline)
+;;(sml-modeline-mode 1)
 
 (ido-mode t)
 
