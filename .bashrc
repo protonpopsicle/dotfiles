@@ -5,6 +5,8 @@ export PYTHONDONTWRITEBYTECODE=True
 alias la='ls -aGF'
 alias ll='la -l'
 
+export ALTERNATE_EDITOR=""
+export EDITOR=emacsclient
 
 #### automatically activate virtualenvs named 'venv'
 #### just put this at the end of your ~/.bashrc file

@@ -15,12 +15,6 @@
 (setq inhibit-splash-screen t)
 ;;(add-hook 'after-init-hook 'org-agenda-list)
 
-;; disable UI
-(scroll-bar-mode -1)
-(setq use-dialog-box nil)
-(menu-bar-mode -1)
-(tool-bar-mode -1)
-
 (setq default-frame-alist '(
                 (width . 106)
                 (height . 47)))
@@ -134,3 +128,9 @@
 ;; (when (require 'diminish nil 'noerror)
 ;;   (eval-after-load "projectile"
 ;;       '(diminish 'projectile-mode "︻╦╤─")))
+
+;; disable UI
+(scroll-bar-mode -1)
+(setq use-dialog-box nil)
+(menu-bar-mode -1)
+(tool-bar-mode -1)
