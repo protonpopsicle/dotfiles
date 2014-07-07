@@ -74,7 +74,7 @@
 (ido-vertical-mode 1)
 
 ;; (setq id-enable-flex-matching t)
-(ido-everywhere 1)
+;; (ido-everywhere 1)
 
 (require 'flx-ido)
 (flx-ido-mode 1)
