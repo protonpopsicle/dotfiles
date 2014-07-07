@@ -8,6 +8,10 @@ alias ll='la -l'
 export ALTERNATE_EDITOR=""
 export EDITOR=emacsclient
 
+if [ -f ~/.git-completion.bash ]; then
+  . ~/.git-completion.bash
+fi
+
 #### automatically activate virtualenvs named 'venv'
 #### just put this at the end of your ~/.bashrc file
 workon_virtualenv() {
