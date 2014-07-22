@@ -3,9 +3,9 @@
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
 (package-initialize)
 
-;; (setq load-path (cons "~/tidal/" load-path))
-;; (when (require 'tidal nil 'noerror)
-;;   (setq tidal-interpreter "/usr/local/bin/ghci"))
+(setq load-path (cons "~/tidal/" load-path))
+(when (require 'tidal nil 'noerror)
+  (setq tidal-interpreter "/usr/local/bin/ghci"))
 
 ;; disable auto-save and auto-backup
 (setq auto-save-default nil)
@@ -25,7 +25,7 @@
 (setq org-log-done 'time)
 
 ;; TeX
-;;(setq latex-run-command "xelatex")
+(setq latex-run-command "xelatex")
 
 ;; fonts
 ;;(add-to-list 'default-frame-alist '(font . "Menlo-11"))
@@ -35,8 +35,8 @@
 ;; (setq image-dired-external-viewer "open")
 
 ;; theme
-(require 'cyberpunk-theme)
-(load-theme 'cyberpunk t)
+;;(require 'cyberpunk-theme)
+;;(load-theme 'cyberpunk t)
 
 ;; spellcheck
 ;; (setq ispell-program-name "aspell")
@@ -48,12 +48,12 @@
 
 (require 'projectile)
 (projectile-global-mode)
-(define-key projectile-mode-map [?\s-p] 'projectile-switch-project)
-(define-key projectile-mode-map [?\s-f] 'projectile-find-file)
-(define-key projectile-mode-map [?\s-g] 'projectile-grep)
-(define-key projectile-mode-map [?\s-b] 'projectile-switch-to-buffer)
+;;(define-key projectile-mode-map [?\s-p] 'projectile-switch-project)
+;;(define-key projectile-mode-map [?\s-f] 'projectile-find-file)
+;;(define-key projectile-mode-map [?\s-g] 'projectile-grep)
+;;(define-key projectile-mode-map [?\s-b] 'projectile-switch-to-buffer)
 
-(setq projectile-switch-project-action 'projectile-dired)
+;;(setq projectile-switch-project-action 'projectile-dired)
 
 ;;(setq-default line-spacing .15)
 
@@ -93,7 +93,7 @@
 (add-hook 'emacs-lisp-mode (lambda () (show-paren-mode 1)))
 
 ;; nice scrolling
-(setq scroll-margin 0
+(setq scroll-margin 3
       scroll-conservatively 100000
       scroll-preserve-screen-position 1)
 
@@ -118,5 +118,17 @@
 ;; disable UI
 ;;(scroll-bar-mode -1)
 ;;(setq use-dialog-box nil)
-;;(menu-bar-mode -1)
+(menu-bar-mode -1)
 ;;(tool-bar-mode -1)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes (quote ("5b3bd478f014d1ff16e1f8ee6e13329c274dd33721f14459d0d2d8f6d93f629d" "758da0cfc4ecb8447acb866fb3988f4a41cf2b8f9ca28de9b21d9a68ae61b181" "77d704908bf206929237af1089f020781963dcc671489005fb8153c1745f689a" default))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
