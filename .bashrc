@@ -3,10 +3,6 @@ export CFLAGS=-Qunused-arguments
 export CPPFLAGS=-Qunused-arguments
 export PYTHONDONTWRITEBYTECODE=True
 alias la='ls -aGF'
-alias ll='la -l'
-
-export ALTERNATE_EDITOR=""
-export EDITOR=emacsclient
 
 if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
