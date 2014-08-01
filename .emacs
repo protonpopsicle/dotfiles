@@ -26,6 +26,7 @@
 
 ;; TeX
 (setq latex-run-command "xelatex")
+(setq tex-run-command "xetex")
 
 ;; fonts
 ;;(add-to-list 'default-frame-alist '(font . "Menlo-11"))
