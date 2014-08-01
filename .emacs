@@ -40,7 +40,8 @@
 ;;(load-theme 'cyberpunk t)
 
 ;; spellcheck
-;; (setq ispell-program-name "aspell")
+(setq ispell-program-name "aspell")
+(setq ispell-list-command "--list")
 
 ;; path stuff
 (setenv "PATH" (concat (getenv "PATH") ":/usr/texbin:/usr/local/git/bin:/usr/local/bin:/usr/local/sbin"))
