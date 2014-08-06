@@ -3,16 +3,12 @@
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
 (package-initialize)
 
-(setq load-path (cons "~/tidal/" load-path))
-(when (require 'tidal nil 'noerror)
-  (setq tidal-interpreter "/usr/local/bin/ghci"))
-
 ;; disable auto-save and auto-backup
 (setq auto-save-default nil)
 (setq make-backup-files nil)
 
 ;; startup
-(setq inhibit-splash-screen t)
+;;(setq inhibit-splash-screen t)
 ;;(add-hook 'after-init-hook 'org-agenda-list)
 
 ;; (setq default-frame-alist '(
@@ -122,15 +118,25 @@
 ;;(setq use-dialog-box nil)
 (menu-bar-mode -1)
 ;;(tool-bar-mode -1)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes (quote ("5b3bd478f014d1ff16e1f8ee6e13329c274dd33721f14459d0d2d8f6d93f629d" "758da0cfc4ecb8447acb866fb3988f4a41cf2b8f9ca28de9b21d9a68ae61b181" "77d704908bf206929237af1089f020781963dcc671489005fb8153c1745f689a" default))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+
+;; modified from writeroom-mode source
+(setq writeroom-width 100)
+
+(defun writeroom--set-margins (window)
+      (let ((current-width (window-total-width window)))
+        (setq margin
+              (cond
+               ((integerp writeroom-width)
+                (/ (- current-width writeroom-width) 2))
+               ((floatp writeroom-width)
+                (/ (- current-width (truncate (* current-width writeroom-width))) 2)))))
+  (set-window-margins window margin margin))
+
+
+(defun distraction-free ()
+  (visual-line-mode t)
+  (writeroom--set-margins (selected-window))
+)
+
+(add-hook 'text-mode-hook `distraction-free)
+;;(add-hook 'markdown-mode-hook (distraction-free))
