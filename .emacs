@@ -11,10 +11,6 @@
 ;;(setq inhibit-splash-screen t)
 ;;(add-hook 'after-init-hook 'org-agenda-list)
 
-;; (setq default-frame-alist '(
-;;                 (width . 106)
-;;                 (height . 47)))
-
 ;; org
 (define-key global-map "\C-ca" 'org-agenda)
 (setq org-agenda-files (list "~/org/todo.org"))
@@ -26,10 +22,6 @@
 
 ;; fonts
 ;;(add-to-list 'default-frame-alist '(font . "Menlo-11"))
-
-;; image-dired
-;; (setq image-dired-show-all-from-dir-max-files 100)
-;; (setq image-dired-external-viewer "open")
 
 ;; theme
 ;;(require 'cyberpunk-theme)
@@ -48,9 +40,7 @@
 (projectile-global-mode)
 ;;(define-key projectile-mode-map [?\s-p] 'projectile-switch-project)
 ;;(define-key projectile-mode-map [?\s-f] 'projectile-find-file)
-;;(define-key projectile-mode-map [?\s-g] 'projectile-grep)
 ;;(define-key projectile-mode-map [?\s-b] 'projectile-switch-to-buffer)
-
 ;;(setq projectile-switch-project-action 'projectile-dired)
 
 ;;(setq-default line-spacing .15)
@@ -63,16 +53,9 @@
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
-;;(require 'sml-modeline)
-;;(sml-modeline-mode 1)
-
 (ido-mode t)
-
 (require 'ido-vertical-mode)
 (ido-vertical-mode 1)
-
-;; (setq id-enable-flex-matching t)
-;; (ido-everywhere 1)
 
 (require 'flx-ido)
 (flx-ido-mode 1)
@@ -83,10 +66,6 @@
 (require 'auto-complete)
 (global-auto-complete-mode t)
 
-;; (defun linum-on ()
-;;   (linum-mode 1))
-
-;;(add-hook 'python-mode-hook 'linum-on)
 (add-hook 'python-mode-hook (lambda () (show-paren-mode 1)))
 (add-hook 'emacs-lisp-mode (lambda () (show-paren-mode 1)))
 
@@ -100,18 +79,8 @@
 (column-number-mode t)
 (size-indication-mode t)
 
-;; make the fringe (gutter) smaller
-;; the argument is a width in pixels (the default is 8)
-;; (if (fboundp 'fringe-mode)
-;;     (fringe-mode 4))
-
 ;; enable y/n answers
 (fset 'yes-or-no-p 'y-or-n-p)
-
-;; diminish keeps the modeline tidy
-;; (when (require 'diminish nil 'noerror)
-;;   (eval-after-load "projectile"
-;;       '(diminish 'projectile-mode "︻╦╤─")))
 
 ;; disable UI
 ;;(scroll-bar-mode -1)
@@ -138,5 +107,5 @@
   (writeroom--set-margins (selected-window))
 )
 
-(add-hook 'text-mode-hook `distraction-free)
-;;(add-hook 'markdown-mode-hook (distraction-free))
+(add-hook 'text-mode-hook 'distraction-free)
+(add-hook 'markdown-mode-hook 'distraction-free)
