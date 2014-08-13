@@ -109,3 +109,6 @@
 
 (add-hook 'text-mode-hook 'distraction-free)
 (add-hook 'markdown-mode-hook 'distraction-free)
+
+;; disable vc
+(setq vc-handled-backends ())
