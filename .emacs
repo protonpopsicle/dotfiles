@@ -29,7 +29,7 @@
 (setq echo-keystrokes 0.1
       use-dialog-box nil)
 
-(add-hook 'emacs-startup-hook 'org-agenda-list)
+;;(add-hook 'emacs-startup-hook 'org-agenda-list)
 
 ;; org
 (define-key global-map "\C-ca" 'org-agenda)
@@ -117,9 +117,11 @@
 
 (defun distraction-free (chars-wide)
   (interactive "nLine width in characters? ")
+  (writers-mode-set-margins (selected-window) chars-wide))
   (visual-line-mode t)
   (setq mode-line-format nil)
-  (writers-mode-set-margins (selected-window) chars-wide))
+  (force-mode-line-update)
+
 
 
 ;; (add-hook 'text-mode-hook 'distraction-free)
@@ -142,6 +144,7 @@
 ;; automatically delete trailing whitespace before save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+(require 'fill-column-indicator)
 (setq fci-rule-column 80)
 (add-hook 'python-mode-hook 'fci-mode)
 
