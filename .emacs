@@ -10,7 +10,7 @@
 
 (setq inhibit-splash-screen t
       initial-scratch-message nil
-       initial-major-mode 'org-mode)
+      initial-major-mode 'org-mode)
 
 (scroll-bar-mode -1)
 (menu-bar-mode -1)
@@ -35,7 +35,17 @@
 (define-key global-map "\C-ca" 'org-agenda)
 (setq org-agenda-files (list "~/Dropbox/org/todo.org"))
 (setq org-log-done 'time)
-(setq org-link-frame-setup '((file . find-file)))
+;;(setq org-link-frame-setup '((file . find-file)))
+;;(setq org-hide-leading-stars 1)
+(setq org-startup-indented 1)
+(setq org-return-follows-link t)
+(setq org-odd-levels-only t)
+
+;;SET EMACS AS DEFAULT MAJOR MODE TO FOR ALL FILES WITH AN UNSPECIFIED MODE
+(setq default-major-mode 'org-mode)
+
+;;OPEN ALL TXT FILES IN ORGMODE
+(add-to-list 'auto-mode-alist '("\\.txt$" . org-mode))
 
 ;; TeX
 (setq latex-run-command "xelatex")
@@ -127,7 +137,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(org-hide ((t (:foreground "black")))))
 
 ;; automatically delete trailing whitespace before save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
