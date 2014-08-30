@@ -23,26 +23,25 @@
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
-(global-set-key (kbd "C-+") 'text-scale-increase)
-(global-set-key (kbd "C--") 'text-scale-decrease)
-
-(setq echo-keystrokes 0.1
-      use-dialog-box nil)
-
-;;(add-hook 'emacs-startup-hook 'org-agenda-list)
+;; (setq echo-keystrokes 0.1
+;;       use-dialog-box nil)
 
 ;; org
 (define-key global-map "\C-ca" 'org-agenda)
-(setq org-agenda-files (list "~/Dropbox/org/todo.org"))
+(setq org-agenda-files (list "~/Dropbox/org/organizer.org"))
 (setq org-log-done 'time)
 ;;(setq org-link-frame-setup '((file . find-file)))
-;;(setq org-hide-leading-stars 1)
+(setq org-hide-leading-stars 1)
 (setq org-startup-indented 1)
-(setq org-return-follows-link t)
-(setq org-odd-levels-only t)
+;; (setq org-return-follows-link t)
+;; (setq org-odd-levels-only t)
+(setq org-todo-keywords '("TODO" "STARTED" "WAITING" "DONE"))
 
 ;;SET EMACS AS DEFAULT MAJOR MODE TO FOR ALL FILES WITH AN UNSPECIFIED MODE
 (setq default-major-mode 'org-mode)
+
+(add-hook 'org-mode-hook (lambda ()
+                           (visual-line-mode 1)))
 
 ;;OPEN ALL TXT FILES IN ORGMODE
 (add-to-list 'auto-mode-alist '("\\.txt$" . org-mode))
@@ -73,7 +72,7 @@
 
 (global-auto-revert-mode 1)
 
-;;(global-set-key (kbd "C-x C-b") 'ibuffer)
+(global-set-key (kbd "C-x C-b") 'ibuffer)
 
 (ido-mode t)
 ;; (require 'ido-vertical-mode)
@@ -100,32 +99,31 @@
 ;; mode line settings
 (line-number-mode t)
 (column-number-mode t)
-;;(size-indication-mode t)
 
 
-;; modified from writeroom-mode source
+;; ;; modified from writeroom-mode source
 
-(defun writers-mode-set-margins (window chars-wide)
-      (let ((current-width (window-total-width window)))
-        (setq margin
-              (cond
-               ((integerp chars-wide)
-                (/ (- current-width chars-wide) 2))
-               ((floatp chars-wide)
-                (/ (- current-width (truncate (* current-width chars-wide))) 2)))))
-  (set-window-margins window margin margin))
+;; (defun writers-mode-set-margins (window chars-wide)
+;;       (let ((current-width (window-total-width window)))
+;;         (setq margin
+;;               (cond
+;;                ((integerp chars-wide)
+;;                 (/ (- current-width chars-wide) 2))
+;;                ((floatp chars-wide)
+;;                 (/ (- current-width (truncate (* current-width chars-wide))) 2)))))
+;;   (set-window-margins window margin margin))
 
-(defun distraction-free (chars-wide)
-  (interactive "nLine width in characters? ")
-  (writers-mode-set-margins (selected-window) chars-wide))
-  (visual-line-mode t)
-  (setq mode-line-format nil)
-  (force-mode-line-update)
+;; (defun distraction-free (chars-wide)
+;;   (interactive "nLine width in characters? ")
+;;   (writers-mode-set-margins (selected-window) chars-wide))
+;;   (visual-line-mode t)
+;;   (setq mode-line-format nil)
+;;   (force-mode-line-update)
 
 
 
-;; (add-hook 'text-mode-hook 'distraction-free)
-;; (add-hook 'markdown-mode-hook 'distraction-free)
+;; ;; (add-hook 'text-mode-hook 'distraction-free)
+;; ;; (add-hook 'markdown-mode-hook 'distraction-free)
 
 
 (custom-set-variables
