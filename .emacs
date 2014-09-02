@@ -9,42 +9,60 @@
 (setq auto-save-default nil)
 
 (setq inhibit-splash-screen t
-      initial-scratch-message nil
-      initial-major-mode 'org-mode)
+(setq initial-major-mode 'org-mode)
 
 (scroll-bar-mode -1)
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 
 (delete-selection-mode 1)
+(fset 'yes-or-no-p 'y-or-n-p)
+(setq default-major-mode 'org-mode)
 
 ;; No fucking tabs
 (setq indent-tabs-mode nil)
 
-(fset 'yes-or-no-p 'y-or-n-p)
+;; automatically delete trailing whitespace before save
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-;; (setq echo-keystrokes 0.1
-;;       use-dialog-box nil)
+(require 'fill-column-indicator)
+(setq fci-rule-column 80)
+(add-hook 'prog-mode-hook 'fci-mode)
+
+(require 'rainbow-delimiters)
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'prog-mode-hook 'show-paren-mode)
+
+;; disable vc
+(setq vc-handled-backends ())
 
 ;; org
-(define-key global-map "\C-ca" 'org-agenda)
-(setq org-agenda-files (list "~/Dropbox/org/organizer.org"))
+(setq org-directory "~/Dropbox/org/")
+(setq org-startup-indented t)
 (setq org-log-done 'time)
-;;(setq org-link-frame-setup '((file . find-file)))
-(setq org-hide-leading-stars 1)
-(setq org-startup-indented 1)
-;; (setq org-return-follows-link t)
-;; (setq org-odd-levels-only t)
-(setq org-todo-keywords '("TODO" "STARTED" "WAITING" "DONE"))
+(setq org-todo-keywords '("TODO" "NEXT" "WAITING" "SOMEDAY" "DONE"))
+(add-hook 'org-mode-hook (lambda () (visual-line-mode 1)))
 
-;;SET EMACS AS DEFAULT MAJOR MODE TO FOR ALL FILES WITH AN UNSPECIFIED MODE
-(setq default-major-mode 'org-mode)
+;; org agenda
+(define-key global-map "\C-ca" 'org-agenda)
+(setq org-agenda-files (list (concat org-directory "organizer.org")))
+(setq org-agenda-custom-commands '(("n" todo "NEXT")))
 
-(add-hook 'org-mode-hook (lambda ()
-                           (visual-line-mode 1)))
+;; org capture
+(setq org-capture-templates
+      '(("i" "Inbox" entry
+	 (file+headline (concat org-directory "organizer.org") "Inbox")
+         "* TODO %?")))
 
-;;OPEN ALL TXT FILES IN ORGMODE
-(add-to-list 'auto-mode-alist '("\\.txt$" . org-mode))
+(define-key global-map "\C-cc"
+        (lambda () (interactive) (org-capture nil "i")))
+
+;; org refile
+(setq org-refile-targets (quote ((nil :maxlevel . 5)
+				 (org-agenda-files :maxlevel . 5))))
+(setq org-refile-use-outline-path t)
+(setq org-completion-use-ido t)
+(setq org-outline-path-complete-in-steps nil)
 
 ;; TeX
 (setq latex-run-command "xelatex")
@@ -55,15 +73,11 @@
 (setq-default line-spacing .15)
 (set-default 'cursor-type '(bar . 1))
 
-;; theme
-;;(require 'cyberpunk-theme)
-;;(load-theme 'cyberpunk t)
-
-;; spellcheck
 (setq ispell-program-name "aspell")
 (setq ispell-list-command "--list")
 
-(setenv "PATH" (concat (getenv "PATH") ":/usr/texbin:/usr/local/git/bin:/usr/local/bin:/usr/local/sbin"))
+(setenv "PATH" (concat (getenv "PATH") ":/usr/texbin:/usr/local/git/bin: \
+/usr/local/bin:/usr/local/sbin"))
 (add-to-list 'exec-path "/usr/local/bin")
 (add-to-list 'exec-path "/usr/texbin")
 
@@ -75,8 +89,8 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
 (ido-mode t)
-;; (require 'ido-vertical-mode)
-;; (ido-vertical-mode 1)
+;;(require 'ido-vertical-mode)
+;;(ido-vertical-mode 1)
 
 (require 'flx-ido)
 (flx-ido-mode 1)
@@ -87,10 +101,6 @@
 (require 'auto-complete)
 (global-auto-complete-mode t)
 
-;;(add-hook 'python-mode-hook (lambda () (show-paren-mode 1)))
-;;(add-hook 'emacs-lisp-mode (lambda () (show-paren-mode 1)))
-
-
 ;; nice scrolling
 (setq scroll-margin 3
       scroll-conservatively 100000
@@ -99,32 +109,6 @@
 ;; mode line settings
 (line-number-mode t)
 (column-number-mode t)
-
-
-;; ;; modified from writeroom-mode source
-
-;; (defun writers-mode-set-margins (window chars-wide)
-;;       (let ((current-width (window-total-width window)))
-;;         (setq margin
-;;               (cond
-;;                ((integerp chars-wide)
-;;                 (/ (- current-width chars-wide) 2))
-;;                ((floatp chars-wide)
-;;                 (/ (- current-width (truncate (* current-width chars-wide))) 2)))))
-;;   (set-window-margins window margin margin))
-
-;; (defun distraction-free (chars-wide)
-;;   (interactive "nLine width in characters? ")
-;;   (writers-mode-set-margins (selected-window) chars-wide))
-;;   (visual-line-mode t)
-;;   (setq mode-line-format nil)
-;;   (force-mode-line-update)
-
-
-
-;; ;; (add-hook 'text-mode-hook 'distraction-free)
-;; ;; (add-hook 'markdown-mode-hook 'distraction-free)
-
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -138,17 +122,3 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(org-hide ((t (:foreground "black")))))
-
-;; automatically delete trailing whitespace before save
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
-
-(require 'fill-column-indicator)
-(setq fci-rule-column 80)
-(add-hook 'python-mode-hook 'fci-mode)
-
-(require 'rainbow-delimiters)
-(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
-(add-hook 'prog-mode-hook 'show-paren-mode)
-
-;; disable vc
-(setq vc-handled-backends ())
