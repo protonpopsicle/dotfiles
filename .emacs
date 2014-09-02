@@ -8,7 +8,7 @@
 (setq backup-inhibited t)
 (setq auto-save-default nil)
 
-(setq inhibit-splash-screen t
+(setq inhibit-splash-screen t)
 (setq initial-major-mode 'org-mode)
 
 (scroll-bar-mode -1)
