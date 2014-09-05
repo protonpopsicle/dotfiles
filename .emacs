@@ -13,7 +13,6 @@
 
 (scroll-bar-mode -1)
 (menu-bar-mode -1)
-(tool-bar-mode -1)
 
 (delete-selection-mode 1)
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -31,6 +30,7 @@
 
 (require 'rainbow-delimiters)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+
 (add-hook 'prog-mode-hook 'show-paren-mode)
 
 ;; disable vc
@@ -68,11 +68,6 @@
 (setq latex-run-command "xelatex")
 (setq tex-run-command "xetex")
 
-;; fonts
-(add-to-list 'default-frame-alist '(font . "Menlo-11"))
-(setq-default line-spacing .15)
-(set-default 'cursor-type '(bar . 1))
-
 (setq ispell-program-name "aspell")
 (setq ispell-list-command "--list")
 
@@ -89,14 +84,11 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
 (ido-mode t)
-;;(require 'ido-vertical-mode)
-;;(ido-vertical-mode 1)
+(require 'ido-vertical-mode)
+(ido-vertical-mode 1)
 
 (require 'flx-ido)
 (flx-ido-mode 1)
-
-;; disable flx highlights.
-;; (setq flx-ido-use-faces nill)
 
 (require 'auto-complete)
 (global-auto-complete-mode t)
@@ -110,15 +102,29 @@
 (line-number-mode t)
 (column-number-mode t)
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes (quote ("5b3bd478f014d1ff16e1f8ee6e13329c274dd33721f14459d0d2d8f6d93f629d" "5d9351cd410bff7119978f8e69e4315fd1339aa7b3af6d398c5ca6fac7fd53c7" default))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(org-hide ((t (:foreground "black")))))
+
+(defun setup-gui ()
+    (require 'moe-theme)
+    (setq moe-theme-highlight-buffer-id nil)
+    (require 'moe-theme-switcher)
+    (moe-theme-random-color)
+    (setq show-paren-style 'expression)
+    (add-to-list 'default-frame-alist '(font . "Menlo-11"))
+    (setq-default line-spacing .15)
+    (set-default 'cursor-type '(bar . 1))
+    (tool-bar-mode -1)
+)
+
+(when window-system (setup-gui))
+
+(when (daemonp)
+    (add-hook 'after-make-frame-functions
+        (lambda (frame)
+            (with-selected-frame frame
+               (setup-gui)))))
