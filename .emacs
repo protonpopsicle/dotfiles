@@ -9,7 +9,22 @@
 (setq auto-save-default nil)
 
 (setq inhibit-splash-screen t)
+(setq initial-scratch-message "\
+¸¸.•*¨*•*´¨)
+¸.•´¸.•*´¨) ¸.•*¨)
+(¸.•´ (¸.•` ¤ Thank you!
+
+
+    _/    _/            _/  _/
+   _/    _/    _/_/    _/  _/    _/_/
+  _/_/_/_/  _/_/_/_/  _/  _/  _/    _/
+ _/    _/  _/        _/  _/  _/    _/
+_/    _/    _/_/_/  _/  _/    _/_/
+
+
+")
 (setq initial-major-mode 'org-mode)
+(add-to-list 'auto-mode-alist '("\\.txt$" . org-mode))
 
 (scroll-bar-mode -1)
 (menu-bar-mode -1)
@@ -41,6 +56,7 @@
 (setq org-startup-indented t)
 (setq org-log-done 'time)
 (setq org-todo-keywords '("TODO" "NEXT" "WAITING" "SOMEDAY" "DONE"))
+(setq org-tag-alist '(("@work" . ?w) ("@home" . ?h)))
 (add-hook 'org-mode-hook (lambda () (visual-line-mode 1)))
 
 ;; org agenda
