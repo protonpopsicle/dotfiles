@@ -118,29 +118,33 @@ _/    _/    _/_/_/  _/  _/    _/_/
 (line-number-mode t)
 (column-number-mode t)
 
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(org-hide ((t (:foreground "black")))))
+;; cocoa
+(add-to-list 'default-frame-alist '(font . "Menlo-11"))
+(setq-default line-spacing .15)
+(set-default 'cursor-type '(bar . 1))
+(tool-bar-mode -1)
 
-(defun setup-gui ()
-    (require 'moe-theme)
-    (setq moe-theme-highlight-buffer-id nil)
-    (require 'moe-theme-switcher)
-    (moe-theme-random-color)
-    (setq show-paren-style 'expression)
-    (add-to-list 'default-frame-alist '(font . "Menlo-11"))
-    (setq-default line-spacing .15)
-    (set-default 'cursor-type '(bar . 1))
-    (tool-bar-mode -1)
-)
+(defun setup-cocoa ()
+  (require 'moe-theme)
+  (setq moe-theme-highlight-buffer-id nil)
+  (require 'moe-theme-switcher)
+  (moe-theme-random-color)
+  (setq show-paren-style 'expression))
 
-(when window-system (setup-gui))
+(unless window-system
+  (custom-set-faces
+   ;; custom-set-faces was added by Custom.
+   ;; If you edit it by hand, you could mess it up, so be careful.
+   ;; Your init file should contain only one such instance.
+   ;; If there is more than one, they won't work right.
+   '(org-hide ((t (:foreground "black"))))))
 
-(when (daemonp)
+(if (daemonp)
     (add-hook 'after-make-frame-functions
         (lambda (frame)
             (with-selected-frame frame
-               (setup-gui)))))
+               (setup-cocoa))))
+  (when window-system (setup-cocoa))
+)
+
+(require 'twittering-mode)

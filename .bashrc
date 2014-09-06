@@ -2,7 +2,16 @@ export PATH=~/.cabal/bin:/usr/local/bin:/usr/local/mysql/bin:$PATH
 export CFLAGS=-Qunused-arguments
 export CPPFLAGS=-Qunused-arguments
 export PYTHONDONTWRITEBYTECODE=True
-alias la='ls -aGF'
+
+# Daemon mode with OS X GUI Emacs
+EMACS_APP="/usr/local/Cellar/emacs/24.3/Emacs.app"
+alias es="$EMACS_APP/Contents/MacOS/Emacs --daemon"
+# alias emacs="emacsclient -c -n"
+# export EDITOR='$emacsclient -c'
+
+# Daemon mode in the Terminal
+# alias emacs="emacsclient -ct"
+# alias es="emacs --daemon"
 
 if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
