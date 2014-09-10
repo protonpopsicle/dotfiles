@@ -123,13 +123,21 @@ _/    _/    _/_/_/  _/  _/    _/_/
 (setq-default line-spacing .15)
 (set-default 'cursor-type '(bar . 1))
 (tool-bar-mode -1)
+(set-fringe-mode 0)
 
 (defun setup-cocoa ()
   (require 'moe-theme)
   (setq moe-theme-highlight-buffer-id nil)
   (require 'moe-theme-switcher)
   (moe-theme-random-color)
-  (setq show-paren-style 'expression))
+  (setq show-paren-style 'expression)
+  (add-hook 'prog-mode-hook 'hl-line-mode)
+  (add-hook 'dired-mode-hook 'hl-line-mode)
+  (add-hook 'package-menu-mode-hook 'hl-line-mode)
+  (add-hook 'buffer-menu-mode-hook 'hl-line-mode))
+  ;; (set-frame-parameter (selected-frame) 'alpha '(85 85))
+  ;; (add-to-list 'default-frame-alist '(alpha 85 85)))
+
 
 (unless window-system
   (custom-set-faces
@@ -146,5 +154,6 @@ _/    _/    _/_/_/  _/  _/    _/_/
                (setup-cocoa))))
   (when window-system (setup-cocoa))
 )
+
 
 (require 'twittering-mode)
