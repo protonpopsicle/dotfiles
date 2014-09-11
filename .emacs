@@ -9,20 +9,20 @@
 (setq auto-save-default nil)
 
 (setq inhibit-splash-screen t)
-(setq initial-scratch-message "\
-¸¸.•*¨*•*´¨)
-¸.•´¸.•*´¨) ¸.•*¨)
-(¸.•´ (¸.•` ¤ Thank you!
+;; (setq initial-scratch-message "\
+;; ¸¸.•*¨*•*´¨)
+;; ¸.•´¸.•*´¨) ¸.•*¨)
+;; (¸.•´ (¸.•` ¤ Thank you!
 
 
-    _/    _/            _/  _/
-   _/    _/    _/_/    _/  _/    _/_/
-  _/_/_/_/  _/_/_/_/  _/  _/  _/    _/
- _/    _/  _/        _/  _/  _/    _/
-_/    _/    _/_/_/  _/  _/    _/_/
+;;     _/    _/            _/  _/
+;;    _/    _/    _/_/    _/  _/    _/_/
+;;   _/_/_/_/  _/_/_/_/  _/  _/  _/    _/
+;;  _/    _/  _/        _/  _/  _/    _/
+;; _/    _/    _/_/_/  _/  _/    _/_/
 
 
-")
+;; ")
 (setq initial-major-mode 'org-mode)
 (add-to-list 'auto-mode-alist '("\\.txt$" . org-mode))
 
@@ -93,7 +93,7 @@ _/    _/    _/_/_/  _/  _/    _/_/
 (add-to-list 'exec-path "/usr/texbin")
 
 (require 'projectile)
-(projectile-global-mode)
+;; (projectile-global-mode)
 
 (global-auto-revert-mode 1)
 
@@ -123,7 +123,7 @@ _/    _/    _/_/_/  _/  _/    _/_/
 (setq-default line-spacing .15)
 (set-default 'cursor-type '(bar . 1))
 (tool-bar-mode -1)
-(set-fringe-mode 0)
+(set-fringe-mode 3)
 
 (defun setup-cocoa ()
   (require 'moe-theme)
