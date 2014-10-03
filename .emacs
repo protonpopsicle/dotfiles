@@ -10,13 +10,14 @@
 
 (setq inhibit-splash-screen t)
 (setq initial-major-mode 'text-mode)
+(setq initial-scratch-message (spook))
 
 (menu-bar-mode -1)
 (delete-selection-mode 1)
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
-(setq indent-tabs-mode nil) ;; no fucking tabs
+(setq indent-tabs-mode nil) ;; no tabs
 
 ;; automatically delete trailing whitespace before save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
@@ -35,6 +36,7 @@
 ;; org
 (setq org-directory "~/Dropbox/org/")
 (setq org-startup-indented t)
+(setq org-startup-with-inline-images t)
 (setq org-log-done 'time)
 (setq org-todo-keywords '("TODO" "NEXT" "WAITING" "SOMEDAY" "DONE"))
 (setq org-tag-alist '(("@work" . ?w) ("@home" . ?h)))
@@ -73,6 +75,7 @@
 (add-to-list 'exec-path "/usr/texbin")
 
 (require 'projectile)
+(projectile-global-mode 1)
 
 (global-auto-revert-mode 1)
 
@@ -98,6 +101,7 @@
 (setq-default line-spacing .15)
 (tool-bar-mode -1)
 (set-fringe-mode 0)
+(setq fancy-startup-text "black")
 
 (defun setup-gui ()
   (require 'moe-theme)
@@ -132,10 +136,12 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(org-hide ((t (:foreground "black")))))
+ '(org-hide ((t (:foreground "black"))) t))
 
 (require 'markdown-mode)
 (add-hook 'markdown-mode-hook (lambda () (visual-line-mode 1)))
 
 (require 'yaml-mode)
 (require 'twittering-mode)
+(require 'automargin)
+(setq automargin-target-width 100)
