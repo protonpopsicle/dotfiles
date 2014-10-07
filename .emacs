@@ -34,12 +34,12 @@
 (setq vc-handled-backends ()) ;; disable vc
 
 ;; org
+(add-to-list 'auto-mode-alist '("\\.txt\\'" . org-mode))
 (setq org-directory "~/Dropbox/org/")
 (setq org-startup-indented t)
 (setq org-startup-with-inline-images t)
 (setq org-log-done 'time)
 (setq org-todo-keywords '("TODO" "NEXT" "WAITING" "SOMEDAY" "DONE"))
-(setq org-tag-alist '(("@work" . ?w) ("@home" . ?h)))
 (add-hook 'org-mode-hook (lambda () (visual-line-mode 1)))
 
 ;; org agenda
@@ -98,15 +98,16 @@
 ;; gui
 (scroll-bar-mode -1)
 (add-to-list 'default-frame-alist '(font . "Menlo-11"))
+(add-to-list 'default-frame-alist '(width . 85))
+(add-to-list 'default-frame-alist '(height . 40))
 (setq-default line-spacing .15)
 (tool-bar-mode -1)
 (set-fringe-mode 0)
-(setq fancy-startup-text "black")
 
 (defun setup-gui ()
   (require 'moe-theme)
   (setq moe-theme-highlight-buffer-id nil)
-  (require 'moe-theme-switcher)
+  (moe-dark)
   (moe-theme-random-color)
   (setq show-paren-style 'expression)
   (add-hook 'prog-mode-hook 'hl-line-mode)
@@ -130,18 +131,11 @@
   (when window-system (setup-gui))
 )
 
-;; hide org stars in terminal
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(org-hide ((t (:foreground "black"))) t))
-
 (require 'markdown-mode)
 (add-hook 'markdown-mode-hook (lambda () (visual-line-mode 1)))
 
 (require 'yaml-mode)
 (require 'twittering-mode)
+
 (require 'automargin)
 (setq automargin-target-width 100)
