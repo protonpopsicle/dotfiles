@@ -22,10 +22,6 @@
 ;; automatically delete trailing whitespace before save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-(require 'fill-column-indicator)
-(setq fci-rule-column 80)
-(add-hook 'prog-mode-hook 'fci-mode)
-
 (add-hook 'prog-mode-hook 'show-paren-mode)
 
 (require 'rainbow-delimiters)
@@ -34,7 +30,7 @@
 (setq vc-handled-backends ()) ;; disable vc
 
 ;; org
-(add-to-list 'auto-mode-alist '("\\.txt\\'" . org-mode))
+;; (add-to-list 'auto-mode-alist '("\\.txt\\'" . org-mode))
 (setq org-directory "~/Dropbox/org/")
 (setq org-startup-indented t)
 (setq org-startup-with-inline-images t)
@@ -75,7 +71,7 @@
 (add-to-list 'exec-path "/usr/texbin")
 
 (require 'projectile)
-(projectile-global-mode 1)
+;; (projectile-global-mode 1)
 
 (global-auto-revert-mode 1)
 
@@ -94,6 +90,8 @@
 ;; mode line settings
 (line-number-mode t)
 (column-number-mode t)
+
+(add-hook 'prog-mode-hook 'ruler-mode)
 
 ;; gui
 (scroll-bar-mode -1)
@@ -122,6 +120,10 @@
    ;; Your init file should contain only one such instance.
    ;; If there is more than one, they won't work right.
    '(org-hide ((t (:foreground "black"))))))
+
+;; (require 'fill-column-indicator)
+;; (setq fci-rule-column 80)
+;; (add-hook 'prog-mode-hook 'fci-mode)
 
 (if (daemonp)
     (add-hook 'after-make-frame-functions
