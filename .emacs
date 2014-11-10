@@ -10,7 +10,7 @@
 
 (setq inhibit-splash-screen t)
 (setq initial-major-mode 'text-mode)
-(setq initial-scratch-message (spook))
+(setq initial-scratch-message "Happiness is when what you think, what you say, and what you do are in harmony.")
 
 (menu-bar-mode -1)
 (delete-selection-mode 1)
@@ -20,7 +20,7 @@
 (setq indent-tabs-mode nil) ;; no tabs
 
 ;; automatically delete trailing whitespace before save
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
+;; (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (add-hook 'prog-mode-hook 'show-paren-mode)
 
@@ -32,32 +32,33 @@
 ;; org
 ;; (add-to-list 'auto-mode-alist '("\\.txt\\'" . org-mode))
 (setq org-directory "~/Dropbox/org/")
-(setq org-startup-indented t)
-(setq org-startup-with-inline-images t)
+;; (setq org-startup-indented t)
 (setq org-log-done 'time)
-(setq org-todo-keywords '("TODO" "NEXT" "WAITING" "SOMEDAY" "DONE"))
+(setq org-todo-keywords '("NEXT" "WAITING" "SOMEDAY" "DONE"))
 (add-hook 'org-mode-hook (lambda () (visual-line-mode 1)))
 
 ;; org agenda
 (define-key global-map "\C-ca" 'org-agenda)
-(setq org-agenda-files (list org-directory))
+(setq org-agenda-files (list 
+                        (concat org-directory "organizer.org")))
+                        ;; (concat org-directory "somday.org")))
 (setq org-agenda-custom-commands '(("n" todo "NEXT")))
 
 ;; org capture
 (setq org-capture-templates
       '(("i" "Inbox" entry
 	 (file+headline (concat org-directory "organizer.org") "Inbox")
-         "* TODO %?")))
+         "* NEXT %?")))
 
 (define-key global-map "\C-cc"
         (lambda () (interactive) (org-capture nil "i")))
 
 ;; org refile
-(setq org-refile-targets (quote ((nil :maxlevel . 5)
-				 (org-agenda-files :maxlevel . 5))))
-(setq org-refile-use-outline-path t)
-(setq org-completion-use-ido t)
-(setq org-outline-path-complete-in-steps nil)
+(setq org-refile-targets (quote ((nil :maxlevel . 3)
+				 (org-agenda-files :maxlevel . 3))))
+(setq org-refile-use-outline-path 'file)
+;; (setq org-completion-use-ido t)
+;; (setq org-outline-path-complete-in-steps nil)
 
 ;; TeX
 (setq tex-run-command "xetex")
@@ -91,8 +92,6 @@
 (line-number-mode t)
 (column-number-mode t)
 
-(add-hook 'prog-mode-hook 'ruler-mode)
-
 ;; gui
 (scroll-bar-mode -1)
 (add-to-list 'default-frame-alist '(font . "Menlo-11"))
@@ -105,8 +104,8 @@
 (defun setup-gui ()
   (require 'moe-theme)
   (setq moe-theme-highlight-buffer-id nil)
-  (moe-dark)
-  (moe-theme-random-color)
+  ;; (moe-dark)
+  ;; (moe-theme-random-color)
   (setq show-paren-style 'expression)
   (add-hook 'prog-mode-hook 'hl-line-mode)
   (add-hook 'dired-mode-hook 'hl-line-mode)
@@ -121,9 +120,9 @@
    ;; If there is more than one, they won't work right.
    '(org-hide ((t (:foreground "black"))))))
 
-;; (require 'fill-column-indicator)
-;; (setq fci-rule-column 80)
-;; (add-hook 'prog-mode-hook 'fci-mode)
+(require 'fill-column-indicator)
+(setq fci-rule-column 80)
+(add-hook 'prog-mode-hook 'fci-mode)
 
 (if (daemonp)
     (add-hook 'after-make-frame-functions
@@ -137,7 +136,20 @@
 (add-hook 'markdown-mode-hook (lambda () (visual-line-mode 1)))
 
 (require 'yaml-mode)
-(require 'twittering-mode)
+;; (require 'twittering-mode)
 
 (require 'automargin)
 (setq automargin-target-width 100)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ansi-color-names-vector ["#303030" "#ff4b4b" "#d7ff5f" "#fce94f" "#5fafd7" "#d18aff" "#afd7ff" "#c6c6c6"])
+ '(custom-safe-themes (quote ("5b3bd478f014d1ff16e1f8ee6e13329c274dd33721f14459d0d2d8f6d93f629d" default))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(org-hide ((t (:foreground "black"))) t))
