@@ -10,7 +10,7 @@
 
 (setq inhibit-splash-screen t)
 (setq initial-major-mode 'text-mode)
-(setq initial-scratch-message "Happiness is when what you think, what you say, and what you do are in harmony.")
+(setq initial-scratch-message "")
 
 (menu-bar-mode -1)
 (delete-selection-mode 1)
@@ -72,7 +72,7 @@
 (add-to-list 'exec-path "/usr/texbin")
 
 (require 'projectile)
-;; (projectile-global-mode 1)
+(projectile-global-mode 1)
 
 (global-auto-revert-mode 1)
 
@@ -93,32 +93,34 @@
 (column-number-mode t)
 
 ;; gui
+(set-fringe-mode 4)
 (scroll-bar-mode -1)
 (add-to-list 'default-frame-alist '(font . "Menlo-11"))
 (add-to-list 'default-frame-alist '(width . 85))
 (add-to-list 'default-frame-alist '(height . 40))
 (setq-default line-spacing .15)
 (tool-bar-mode -1)
-(set-fringe-mode 0)
 
 (defun setup-gui ()
   (require 'moe-theme)
   (setq moe-theme-highlight-buffer-id nil)
-  ;; (moe-dark)
-  ;; (moe-theme-random-color)
+  (moe-dark)
+  ;;(moe-theme-set-color 'red)
+  ;; (Available colors: blue, orange, green ,magenta, yellow, purple, red, cyan, w/b.)
+  (moe-theme-random-color)
   (setq show-paren-style 'expression)
   (add-hook 'prog-mode-hook 'hl-line-mode)
   (add-hook 'dired-mode-hook 'hl-line-mode)
   (add-hook 'package-menu-mode-hook 'hl-line-mode)
   (add-hook 'buffer-menu-mode-hook 'hl-line-mode))
 
-(unless window-system
-  (custom-set-faces
-   ;; custom-set-faces was added by Custom.
-   ;; If you edit it by hand, you could mess it up, so be careful.
-   ;; Your init file should contain only one such instance.
-   ;; If there is more than one, they won't work right.
-   '(org-hide ((t (:foreground "black"))))))
+;; (unless window-system
+;;   (custom-set-faces
+;;    ;; custom-set-faces was added by Custom.
+;;    ;; If you edit it by hand, you could mess it up, so be careful.
+;;    ;; Your init file should contain only one such instance.
+;;    ;; If there is more than one, they won't work right.
+;;    '(org-hide ((t (:foreground "black"))))))
 
 (require 'fill-column-indicator)
 (setq fci-rule-column 80)
@@ -140,16 +142,22 @@
 
 (require 'automargin)
 (setq automargin-target-width 100)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(ansi-color-names-vector ["#303030" "#ff4b4b" "#d7ff5f" "#fce94f" "#5fafd7" "#d18aff" "#afd7ff" "#c6c6c6"])
- '(custom-safe-themes (quote ("5b3bd478f014d1ff16e1f8ee6e13329c274dd33721f14459d0d2d8f6d93f629d" default))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(org-hide ((t (:foreground "black"))) t))
+;; (custom-set-variables
+;;  ;; custom-set-variables was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  '(ansi-color-names-vector ["#303030" "#ff4b4b" "#d7ff5f" "#fce94f" "#5fafd7" "#d18aff" "#afd7ff" "#c6c6c6"])
+;;  '(custom-safe-themes (quote ("5b3bd478f014d1ff16e1f8ee6e13329c274dd33721f14459d0d2d8f6d93f629d" default))))
+;; (custom-set-faces
+;;  ;; custom-set-faces was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  '(org-hide ((t (:foreground "black"))) t))
+
+(require 'uniquify) ; bundled with GNU emacs 23.2.1 or before. On in 24.4
+(setq uniquify-buffer-name-style 'post-forward-angle-brackets)
+
+(setq zone-programs [zone-pgm-drip])
+(zone-when-idle 600)
