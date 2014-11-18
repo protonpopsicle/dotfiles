@@ -158,6 +158,3 @@
 
 (require 'uniquify) ; bundled with GNU emacs 23.2.1 or before. On in 24.4
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
-
-(setq zone-programs [zone-pgm-drip])
-(zone-when-idle 600)
