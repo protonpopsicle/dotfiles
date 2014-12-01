@@ -122,9 +122,15 @@
 ;;    ;; If there is more than one, they won't work right.
 ;;    '(org-hide ((t (:foreground "black"))))))
 
-(require 'fill-column-indicator)
-(setq fci-rule-column 80)
-(add-hook 'prog-mode-hook 'fci-mode)
+;; (require 'fill-column-indicator)
+;; (setq fci-rule-column 80)
+;; (add-hook 'prog-mode-hook 'fci-mode)
+
+(require 'whitespace)
+(setq whitespace-line-column 80) ;; limit line length
+(setq whitespace-style '(face lines-tail))
+
+(add-hook 'prog-mode-hook 'whitespace-mode)
 
 (if (daemonp)
     (add-hook 'after-make-frame-functions
