@@ -1,5 +1,7 @@
 set -x PYTHONDONTWRITEBYTECODE True
 
+set PATH /usr/local/bin $PATH
+
 function es
     /usr/local/Cellar/emacs/24.3/Emacs.app/Contents/MacOS/Emacs --daemon
 end
