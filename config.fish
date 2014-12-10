@@ -1,4 +1,5 @@
 set -x PYTHONDONTWRITEBYTECODE True
+set -x RHIZ_APPLICATION_SETTINGS ~/local_config.py
 
 set PATH /usr/local/sbin /usr/local/bin /Users/smeisburger/tizen-sdk/tools/ide/bin $PATH
 
