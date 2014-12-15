@@ -1,4 +1,5 @@
 set -x PYTHONDONTWRITEBYTECODE True
+set -x EDITOR /usr/local/bin/emacs
 
 set PATH /usr/local/sbin /usr/local/bin /Users/smeisburger/tizen-sdk/tools/ide/bin $PATH
 
