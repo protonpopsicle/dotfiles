@@ -1,6 +1,7 @@
 set -x PYTHONDONTWRITEBYTECODE True
 set -x EDITOR /usr/local/bin/emacs
 set -x RHIZ_APPLICATION_SETTINGS ~/local_config.py
+set -x PERCH_WEBAPP_SETTINGS ~/team15/flask-webapp/local_settings.py
 
 set PATH /usr/local/sbin /usr/local/bin /Users/smeisburger/tizen-sdk/tools/ide/bin $PATH
 

@@ -20,7 +20,7 @@
 (setq indent-tabs-mode nil) ;; no tabs
 
 ;; automatically delete trailing whitespace before save
-;; (add-hook 'before-save-hook 'delete-trailing-whitespace)
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (add-hook 'prog-mode-hook 'show-paren-mode)
 
