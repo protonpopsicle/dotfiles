@@ -20,6 +20,7 @@
 (setq indent-tabs-mode nil) ;; no tabs
 
 ;; automatically delete trailing whitespace before save
+;; this fucks up markdown files
 ;; (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (add-hook 'prog-mode-hook 'show-paren-mode)
@@ -43,6 +44,8 @@
                         (concat org-directory "organizer.org")))
                         ;; (concat org-directory "somday.org")))
 (setq org-agenda-custom-commands '(("n" todo "NEXT")))
+(setq org-agenda-prefix-format 
+      "  %-15(concat (car (last (org-get-outline-path))) \":\")")
 
 ;; org capture
 (setq org-capture-templates
