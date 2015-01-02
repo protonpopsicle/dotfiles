@@ -1,4 +1,8 @@
 set -x PYTHONDONTWRITEBYTECODE True
+set -x EDITOR /usr/local/bin/emacs
+set -x RHIZ_APPLICATION_SETTINGS ~/local_config.py
+
+set PATH /usr/local/sbin /usr/local/bin /Users/smeisburger/tizen-sdk/tools/ide/bin $PATH
 
 function es
     /usr/local/Cellar/emacs/24.3/Emacs.app/Contents/MacOS/Emacs --daemon
