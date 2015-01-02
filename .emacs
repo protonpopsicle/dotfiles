@@ -45,7 +45,7 @@
                         ;; (concat org-directory "somday.org")))
 (setq org-agenda-custom-commands '(("n" todo "NEXT")))
 (setq org-agenda-prefix-format 
-      "  %-15(concat (car (last (org-get-outline-path))) \":\")")
+      " %-16(concat (car (last (org-get-outline-path))) \":\")")
 
 ;; org capture
 (setq org-capture-templates
