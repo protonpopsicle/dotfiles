@@ -40,11 +40,11 @@
 
 ;; org agenda
 (define-key global-map "\C-ca" 'org-agenda)
-(setq org-agenda-files (list 
+(setq org-agenda-files (list
                         (concat org-directory "organizer.org")))
                         ;; (concat org-directory "somday.org")))
 (setq org-agenda-custom-commands '(("n" todo "NEXT")))
-(setq org-agenda-prefix-format 
+(setq org-agenda-prefix-format
       " %-16(concat (car (last (org-get-outline-path))) \":\")")
 
 ;; org capture
@@ -57,9 +57,9 @@
         (lambda () (interactive) (org-capture nil "i")))
 
 ;; org refile
-(setq org-refile-targets (quote ((nil :maxlevel . 3)
-				 (org-agenda-files :maxlevel . 3))))
-(setq org-refile-use-outline-path 'file)
+;; (setq org-refile-targets (quote ((nil :maxlevel . 3)
+;; 				 (org-agenda-files :maxlevel . 3))))
+;; (setq org-refile-use-outline-path 'file)
 ;; (setq org-completion-use-ido t)
 ;; (setq org-outline-path-complete-in-steps nil)
 
@@ -125,10 +125,6 @@
 ;;    ;; If there is more than one, they won't work right.
 ;;    '(org-hide ((t (:foreground "black"))))))
 
-;; (require 'fill-column-indicator)
-;; (setq fci-rule-column 80)
-;; (add-hook 'prog-mode-hook 'fci-mode)
-
 (require 'whitespace)
 (setq whitespace-line-column 80) ;; limit line length
 (setq whitespace-style '(face lines-tail))
@@ -147,7 +143,6 @@
 (add-hook 'markdown-mode-hook (lambda () (visual-line-mode 1)))
 
 (require 'yaml-mode)
-;; (require 'twittering-mode)
 
 (require 'automargin)
 (setq automargin-target-width 100)
