@@ -98,7 +98,7 @@
 ;; gui
 (set-fringe-mode 4)
 (scroll-bar-mode -1)
-;;(add-to-list 'default-frame-alist '(font . "Menlo-11"))
+(add-to-list 'default-frame-alist '(font . "Ubuntu Mono-11"))
 (add-to-list 'default-frame-alist '(width . 85))
 (add-to-list 'default-frame-alist '(height . 40))
 (setq-default line-spacing .15)
