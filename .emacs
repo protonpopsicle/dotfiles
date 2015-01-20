@@ -74,19 +74,19 @@
 (add-to-list 'exec-path "/usr/local/bin")
 (add-to-list 'exec-path "/usr/texbin")
 
-(require 'projectile)
-(projectile-global-mode 1)
+;;(require 'projectile)
+;;(projectile-global-mode 1)
 
 (global-auto-revert-mode 1)
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
 (ido-mode t)
-(require 'ido-vertical-mode)
-(ido-vertical-mode 1)
+;; (require 'ido-vertical-mode)
+;; (ido-vertical-mode 1)
 
-(require 'flx-ido)
-(flx-ido-mode 1)
+;; (require 'flx-ido)
+;; (flx-ido-mode 1)
 
 (require 'auto-complete)
 (global-auto-complete-mode t)
@@ -98,19 +98,19 @@
 ;; gui
 (set-fringe-mode 4)
 (scroll-bar-mode -1)
-(add-to-list 'default-frame-alist '(font . "Menlo-11"))
+;;(add-to-list 'default-frame-alist '(font . "Menlo-11"))
 (add-to-list 'default-frame-alist '(width . 85))
 (add-to-list 'default-frame-alist '(height . 40))
 (setq-default line-spacing .15)
 (tool-bar-mode -1)
 
 (defun setup-gui ()
-  (require 'moe-theme)
-  (setq moe-theme-highlight-buffer-id nil)
-  (moe-dark)
+  ;;(require 'moe-theme)
+  ;;(setq moe-theme-highlight-buffer-id nil)
+  ;;(moe-dark)
   ;;(moe-theme-set-color 'red)
   ;; (Available colors: blue, orange, green ,magenta, yellow, purple, red, cyan, w/b.)
-  (moe-theme-random-color)
+  ;;(moe-theme-random-color)
   (setq show-paren-style 'expression)
   (add-hook 'prog-mode-hook 'hl-line-mode)
   (add-hook 'dired-mode-hook 'hl-line-mode)
@@ -139,13 +139,13 @@
   (when window-system (setup-gui))
 )
 
-(require 'markdown-mode)
-(add-hook 'markdown-mode-hook (lambda () (visual-line-mode 1)))
+;;(require 'markdown-mode)
+;;(add-hook 'markdown-mode-hook (lambda () (visual-line-mode 1)))
 
-(require 'yaml-mode)
+;;(require 'yaml-mode)
 
-(require 'automargin)
-(setq automargin-target-width 100)
+;;(require 'automargin)
+;;(setq automargin-target-width 100)
 ;; (custom-set-variables
 ;;  ;; custom-set-variables was added by Custom.
 ;;  ;; If you edit it by hand, you could mess it up, so be careful.
