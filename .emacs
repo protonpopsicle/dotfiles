@@ -82,8 +82,8 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
 (ido-mode t)
-;; (require 'ido-vertical-mode)
-;; (ido-vertical-mode 1)
+(require 'ido-vertical-mode)
+(ido-vertical-mode 1)
 
 ;; (require 'flx-ido)
 ;; (flx-ido-mode 1)

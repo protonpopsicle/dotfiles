@@ -6,7 +6,7 @@ set -x PERCH_WEBAPP_SETTINGS ~/team15/flask-webapp/local_settings.py
 set PATH /usr/local/sbin /usr/local/bin $PATH
 
 function editor
-    eval (which emacs) -nw
+    eval (which emacs) -nw $argv
 end
 
 function es
