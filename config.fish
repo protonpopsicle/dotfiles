@@ -1,13 +1,9 @@
 set -x PYTHONDONTWRITEBYTECODE True
-set -x EDITOR editor
+#set -x EDITOR editor
 set -x RHIZ_APPLICATION_SETTINGS ~/local_config.py
 set -x PERCH_WEBAPP_SETTINGS ~/team15/flask-webapp/local_settings.py
 
 set PATH /usr/local/sbin /usr/local/bin $PATH
-
-function editor
-    eval (which emacs) -nw
-end
 
 function es
     /usr/local/Cellar/emacs/24.3/Emacs.app/Contents/MacOS/Emacs --daemon
