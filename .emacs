@@ -82,8 +82,8 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
 (ido-mode t)
-;; (require 'ido-vertical-mode)
-;; (ido-vertical-mode 1)
+(require 'ido-vertical-mode)
+(ido-vertical-mode 1)
 
 ;; (require 'flx-ido)
 ;; (flx-ido-mode 1)
@@ -98,7 +98,7 @@
 ;; gui
 (set-fringe-mode 4)
 (scroll-bar-mode -1)
-(add-to-list 'default-frame-alist '(font . "Ubuntu Mono-11"))
+;;(add-to-list 'default-frame-alist '(font . "Ubuntu Mono-11"))
 (add-to-list 'default-frame-alist '(width . 85))
 (add-to-list 'default-frame-alist '(height . 40))
 (setq-default line-spacing .15)
@@ -116,6 +116,7 @@
   (add-hook 'dired-mode-hook 'hl-line-mode)
   (add-hook 'package-menu-mode-hook 'hl-line-mode)
   (add-hook 'buffer-menu-mode-hook 'hl-line-mode))
+
 
 ;; (unless window-system
 ;;   (custom-set-faces
@@ -162,3 +163,15 @@
 
 (require 'uniquify) ; bundled with GNU emacs 23.2.1 or before. On in 24.4
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes (quote ("d5d41f830f46af348112e869fbdc66315b560d7f8da55c7b067269f890d28911" default))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
