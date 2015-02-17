@@ -1,7 +1,5 @@
 set -x PYTHONDONTWRITEBYTECODE True
-#set -x EDITOR editor
-set -x RHIZ_APPLICATION_SETTINGS ~/local_config.py
-set -x PERCH_WEBAPP_SETTINGS ~/team15/flask-webapp/local_settings.py
+set -x API_CONFIG ~/team15/api/local_settings.py
 
 set PATH /usr/local/sbin /usr/local/bin $PATH
 

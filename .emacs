@@ -95,6 +95,8 @@
 (line-number-mode t)
 (column-number-mode t)
 
+(load-theme 'leuven t)
+
 ;; gui
 (set-fringe-mode 4)
 (scroll-bar-mode -1)
