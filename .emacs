@@ -95,8 +95,6 @@
 (line-number-mode t)
 (column-number-mode t)
 
-(load-theme 'leuven t)
-
 ;; gui
 (set-fringe-mode 4)
 (scroll-bar-mode -1)
@@ -113,6 +111,7 @@
   ;;(moe-theme-set-color 'red)
   ;; (Available colors: blue, orange, green ,magenta, yellow, purple, red, cyan, w/b.)
   ;;(moe-theme-random-color)
+  (load-theme 'leuven t)
   (setq show-paren-style 'expression)
   (add-hook 'prog-mode-hook 'hl-line-mode)
   (add-hook 'dired-mode-hook 'hl-line-mode)
