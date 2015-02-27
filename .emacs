@@ -25,8 +25,10 @@
 
 (add-hook 'prog-mode-hook 'show-paren-mode)
 
-(require 'rainbow-delimiters)
-(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+;;(require 'rainbow-delimiters)
+;;(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+(require 'highlight-symbol)
+;; (global-set-key (kbd "C-c C-e") 'highlight-symbol-at-point)
 
 (setq vc-handled-backends ()) ;; disable vc
 
@@ -39,7 +41,7 @@
 (add-hook 'org-mode-hook (lambda () (visual-line-mode 1)))
 
 ;; org agenda
-(define-key global-map "\C-ca" 'org-agenda)
+(define-key global-map (kbd "C-c a") 'org-agenda)
 (setq org-agenda-files (list
                         (concat org-directory "organizer.org")))
                         ;; (concat org-directory "somday.org")))
