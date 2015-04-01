@@ -2,8 +2,8 @@
 (package-initialize)
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
-(add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/") t)
+;; (add-to-list 'package-archives
+;;              '("marmalade" . "http://marmalade-repo.org/packages/") t)
 
 (setq backup-inhibited t)
 (setq auto-save-default nil)
@@ -27,7 +27,7 @@
 
 ;;(require 'rainbow-delimiters)
 ;;(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
-(require 'highlight-symbol)
+;; (require 'highlight-symbol)
 ;; (global-set-key (kbd "C-c C-e") 'highlight-symbol-at-point)
 
 (setq vc-handled-backends ()) ;; disable vc
@@ -76,9 +76,6 @@
 (add-to-list 'exec-path "/usr/local/bin")
 (add-to-list 'exec-path "/usr/texbin")
 
-;;(require 'projectile)
-;;(projectile-global-mode 1)
-
 (global-auto-revert-mode 1)
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
@@ -107,13 +104,14 @@
 (tool-bar-mode -1)
 
 (defun setup-gui ()
-  ;;(require 'moe-theme)
+  ;; (require 'moe-theme)
   ;;(setq moe-theme-highlight-buffer-id nil)
-  ;;(moe-dark)
+  ;; (moe-light)
   ;;(moe-theme-set-color 'red)
   ;; (Available colors: blue, orange, green ,magenta, yellow, purple, red, cyan, w/b.)
   ;;(moe-theme-random-color)
-  (load-theme 'leuven t)
+  (require 'warm-night-theme)
+  (load-theme 'warm-night t)
   (setq show-paren-style 'expression)
   (add-hook 'prog-mode-hook 'hl-line-mode)
   (add-hook 'dired-mode-hook 'hl-line-mode)
@@ -150,31 +148,6 @@
 
 ;;(require 'automargin)
 ;;(setq automargin-target-width 100)
-;; (custom-set-variables
-;;  ;; custom-set-variables was added by Custom.
-;;  ;; If you edit it by hand, you could mess it up, so be careful.
-;;  ;; Your init file should contain only one such instance.
-;;  ;; If there is more than one, they won't work right.
-;;  '(ansi-color-names-vector ["#303030" "#ff4b4b" "#d7ff5f" "#fce94f" "#5fafd7" "#d18aff" "#afd7ff" "#c6c6c6"])
-;;  '(custom-safe-themes (quote ("5b3bd478f014d1ff16e1f8ee6e13329c274dd33721f14459d0d2d8f6d93f629d" default))))
-;; (custom-set-faces
-;;  ;; custom-set-faces was added by Custom.
-;;  ;; If you edit it by hand, you could mess it up, so be careful.
-;;  ;; Your init file should contain only one such instance.
-;;  ;; If there is more than one, they won't work right.
-;;  '(org-hide ((t (:foreground "black"))) t))
 
 (require 'uniquify) ; bundled with GNU emacs 23.2.1 or before. On in 24.4
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes (quote ("d5d41f830f46af348112e869fbdc66315b560d7f8da55c7b067269f890d28911" default))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
