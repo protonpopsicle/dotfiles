@@ -2,8 +2,8 @@
 (package-initialize)
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
-;; (add-to-list 'package-archives
-;;              '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/") t)
 
 (setq backup-inhibited t)
 (setq auto-save-default nil)
@@ -21,7 +21,7 @@
 
 ;; automatically delete trailing whitespace before save
 ;; this fucks up markdown files
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
+;;(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (add-hook 'prog-mode-hook 'show-paren-mode)
 
@@ -64,6 +64,8 @@
 ;; (setq org-refile-use-outline-path 'file)
 ;; (setq org-completion-use-ido t)
 ;; (setq org-outline-path-complete-in-steps nil)
+
+(setq js-indent-level 2)
 
 ;; TeX
 (setq tex-run-command "xetex")
@@ -151,3 +153,17 @@
 
 (require 'uniquify) ; bundled with GNU emacs 23.2.1 or before. On in 24.4
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("ac5584b12254623419499c3a7a5388031a29be85a15fdef9b94df2292d3e2cbb" default))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

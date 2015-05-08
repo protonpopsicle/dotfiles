@@ -1,5 +1,6 @@
 set -x PYTHONDONTWRITEBYTECODE True
 set -x API_CONFIG ~/team15/api/local_settings.py
+set -x WEBAPP_CONFIG ~/team15/webapp/local_settings.py
 
 set PATH /usr/local/sbin /usr/local/bin $PATH
 
