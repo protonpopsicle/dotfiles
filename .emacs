@@ -160,10 +160,15 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("ac5584b12254623419499c3a7a5388031a29be85a15fdef9b94df2292d3e2cbb" default))))
+    ("13590cc9554286c8e893463fd8e0dad7134d6b7db10060afbb6850db3e395f17" "a3132bd39a977ddde4c002f8bd0ef181414c3fbe9228e3643b999491192680ad" "f1af57ed9c239a5db90a312de03741e703f712355417662c18e3f66787f94cbe" "ac5584b12254623419499c3a7a5388031a29be85a15fdef9b94df2292d3e2cbb" default))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+(require 'theme-looper)
+(theme-looper-set-theme-set (list 'dakrone 'dark-krystal 'darktooth 'warm-night))
+(global-set-key (kbd "C-|") 'theme-looper-enable-next-theme)
+(global-set-key (kbd "C-\\") 'theme-looper-enable-random-theme)
