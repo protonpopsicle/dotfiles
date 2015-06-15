@@ -112,8 +112,11 @@
   ;;(moe-theme-set-color 'red)
   ;; (Available colors: blue, orange, green ,magenta, yellow, purple, red, cyan, w/b.)
   ;;(moe-theme-random-color)
-  (require 'warm-night-theme)
-  (load-theme 'warm-night t)
+  (load-theme 'dakrone t)
+  (require 'theme-looper)
+  (theme-looper-set-theme-set (list 'dakrone 'dark-krystal 'darktooth 'warm-night))
+  (global-set-key (kbd "C-|") 'theme-looper-enable-next-theme)
+  (global-set-key (kbd "C-\\") 'theme-looper-enable-random-theme)
   (setq show-paren-style 'expression)
   (add-hook 'prog-mode-hook 'hl-line-mode)
   (add-hook 'dired-mode-hook 'hl-line-mode)
@@ -168,7 +171,3 @@
  ;; If there is more than one, they won't work right.
  )
 
-(require 'theme-looper)
-(theme-looper-set-theme-set (list 'dakrone 'dark-krystal 'darktooth 'warm-night))
-(global-set-key (kbd "C-|") 'theme-looper-enable-next-theme)
-(global-set-key (kbd "C-\\") 'theme-looper-enable-random-theme)
