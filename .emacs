@@ -28,30 +28,30 @@
 (setq vc-handled-backends ()) ;; disable vc
 
 ;; org
-;; (add-to-list 'auto-mode-alist '("\\.txt\\'" . org-mode))
 (setq org-directory "~/Dropbox/org/")
+(setq org-html-doctype "html5")
 ;; (setq org-startup-indented t)
 (setq org-log-done 'time)
-(setq org-todo-keywords '("NEXT" "WAITING" "SOMEDAY" "DONE"))
+;; (setq org-todo-keywords '("NEXT" "WAITING" "SOMEDAY" "DONE"))
 (add-hook 'org-mode-hook (lambda () (visual-line-mode 1)))
+(setq org-ellipsis " ▼")
 
 ;; org agenda
-(define-key global-map (kbd "C-c a") 'org-agenda)
-(setq org-agenda-files (list
-                        (concat org-directory "organizer.org")))
-                        ;; (concat org-directory "somday.org")))
-(setq org-agenda-custom-commands '(("n" todo "NEXT")))
-(setq org-agenda-prefix-format
-      " %-28(concat (car (last (org-get-outline-path))) \":\")")
+;; (define-key global-map (kbd "C-c a") 'org-agenda)
+;; (setq org-agenda-files (list
+;;                         (concat org-directory "organizer.org")))
+;; (setq org-agenda-custom-commands '(("n" todo "NEXT")))
+;; (setq org-agenda-prefix-format
+;;       " %-28(concat (car (last (org-get-outline-path))) \":\")")
 
 ;; org capture
-(setq org-capture-templates
-      '(("i" "Inbox" entry
-	 (file+headline (concat org-directory "organizer.org") "Inbox")
-         "* NEXT %?")))
+;; (setq org-capture-templates
+;;       '(("i" "Inbox" entry
+;; 	 (file+headline (concat org-directory "organizer.org") "Inbox")
+;;          "* NEXT %?")))
 
-(define-key global-map "\C-cc"
-        (lambda () (interactive) (org-capture nil "i")))
+;; (define-key global-map "\C-cc"
+;;         (lambda () (interactive) (org-capture nil "i")))
 
 ;; org refile
 ;; (setq org-refile-targets (quote ((nil :maxlevel . 3)
@@ -88,27 +88,23 @@
 (column-number-mode t)
 
 ;; gui
-(set-fringe-mode 4)
-(scroll-bar-mode -1)
-(add-to-list 'default-frame-alist '(width . 85))
-(add-to-list 'default-frame-alist '(height . 40))
-(setq-default line-spacing .15)
-(tool-bar-mode -1)
-
 (defun setup-gui ()
+  (set-fringe-mode 4)
+  (scroll-bar-mode -1)
+  (add-to-list 'default-frame-alist '(width . 85))
+  (add-to-list 'default-frame-alist '(height . 40))
+  (setq-default line-spacing .15)
+  (tool-bar-mode -1)
   (load-theme 'hemisu-light t)
   (require 'display-theme)
   (global-display-theme-mode 1)
   (require 'theme-looper)
-  (theme-looper-set-theme-set (list 'hemisu-light 'planet 'light-blue 'hemisu-dark))
+  (theme-looper-set-theme-set (list 'hemisu-light 'planet 'light-blue
+				    'hemisu-dark 'organic-green 'caroline))
   (global-set-key (kbd "C-|") 'theme-looper-enable-next-theme)
-  (global-set-key (kbd "C-\\") 'theme-looper-enable-random-theme)
   (setq show-paren-style 'expression)
-  (add-hook 'prog-mode-hook 'hl-line-mode)
-  (add-hook 'dired-mode-hook 'hl-line-mode)
-  (add-hook 'package-menu-mode-hook 'hl-line-mode)
-  (add-hook 'buffer-menu-mode-hook 'hl-line-mode))
-
+  (beacon-mode 1))
+(when window-system (setup-gui))
 
 ;; (unless window-system
 ;;   (custom-set-faces
@@ -124,21 +120,8 @@
 
 (add-hook 'prog-mode-hook 'whitespace-mode)
 
-(if (daemonp)
-    (add-hook 'after-make-frame-functions
-        (lambda (frame)
-            (with-selected-frame frame
-               (setup-gui))))
-  (when window-system (setup-gui))
-)
-
 ;;(require 'markdown-mode)
 ;;(add-hook 'markdown-mode-hook (lambda () (visual-line-mode 1)))
-
-;;(require 'yaml-mode)
-
-;;(require 'automargin)
-;;(setq automargin-target-width 100)
 
 (require 'uniquify) ; bundled with GNU emacs 23.2.1 or before. On in 24.4
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
