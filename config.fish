@@ -1,10 +1,11 @@
 set -x PATH /usr/local/sbin /usr/local/bin $PATH
 set -x PYTHONDONTWRITEBYTECODE True
-alias emacs "emacs -nw"
-set -x EDITOR emacs
+set -x EDITOR 'emacs -nw'
 
 set -x API_CONFIG ~/team15/api/local_settings.py
 set -x WEBAPP_CONFIG ~/team15/webapp/local_settings.py
+
+alias emacs 'emacs -nw'
 
 function fish_prompt
     set_color $fish_color_cwd
