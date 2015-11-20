@@ -103,6 +103,7 @@
 				    'hemisu-dark 'organic-green 'caroline))
   (global-set-key (kbd "C-|") 'theme-looper-enable-next-theme)
   (setq show-paren-style 'expression)
+  (require 'beacon)
   (beacon-mode 1))
 (when window-system (setup-gui))
 
