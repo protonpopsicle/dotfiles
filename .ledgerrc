@@ -1,0 +1,4 @@
+--file ~/Dropbox/ledger.dat
+--price-db ~/Dropbox/prices.db
+--market
+; ~/.ledgerrc ends here
