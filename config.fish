@@ -1,7 +1,7 @@
 set -x PATH /usr/local/sbin $PATH
 set -x PYTHONDONTWRITEBYTECODE True
 set -x EDITOR 'emacs -nw'
-set -x LEDGER_TERM 'qt persist'
+set -x LEDGER_TERM 'aqua'
 
 set -x API_CONFIG ~/team15/api/local_settings.py
 set -x WEBAPP_CONFIG ~/team15/webapp/local_settings.py
