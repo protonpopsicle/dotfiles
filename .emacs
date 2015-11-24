@@ -87,6 +87,9 @@
 (line-number-mode t)
 (column-number-mode t)
 
+(require 'ledger-mode)
+(add-to-list 'auto-mode-alist '("ledger\.dat\\'" . ledger-mode))
+
 ;; gui
 (defun setup-gui ()
   (set-fringe-mode 4)
