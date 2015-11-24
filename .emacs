@@ -94,4 +94,4 @@
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 
 (setq custom-file "~/.emacs.d/custom.el")
-(load custom-file)
+(load custom-file 'noerror)
