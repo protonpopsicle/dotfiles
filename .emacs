@@ -17,7 +17,7 @@
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
-(setq indent-tabs-mode nil) ;; no tabs
+;; (setq indent-tabs-mode nil) ;; no tabs
 
 ;; automatically delete trailing whitespace before save
 ;; this fucks up markdown files
@@ -77,7 +77,7 @@
   (global-display-theme-mode 1)
   (require 'theme-looper)
   (theme-looper-set-theme-set (list 'hemisu-light 'planet 'light-blue
-				    'hemisu-dark 'organic-green 'caroline))
+				    'organic-green 'caroline))
   (global-set-key (kbd "C-|") 'theme-looper-enable-next-theme)
   (setq show-paren-style 'expression)
   (require 'beacon)
