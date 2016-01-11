@@ -72,12 +72,12 @@
   (add-to-list 'default-frame-alist '(height . 40))
   (setq-default line-spacing .15)
   (tool-bar-mode -1)
-  (load-theme 'hemisu-light t)
+  (load-theme 'manoj-dark t)
   (require 'display-theme)
   (global-display-theme-mode 1)
   (require 'theme-looper)
-  (theme-looper-set-theme-set (list 'hemisu-light 'planet 'light-blue
-				    'organic-green 'caroline))
+  (theme-looper-set-theme-set (list 'manoj-dark 'light-blue
+				    'organic-green 'hemisu-dark))
   (global-set-key (kbd "C-|") 'theme-looper-enable-next-theme)
   (setq show-paren-style 'expression)
   (require 'beacon)
