@@ -36,6 +36,6 @@ setxkbmap -option ctrl:nocaps
 xbindkeys
 
 sh ~/.fehbg &
-pypanel &
+tint2 &
 
 exec openbox-session
