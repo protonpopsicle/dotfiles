@@ -1,8 +1,8 @@
-set fish_greeting ''
+set fish_greeting 'The ability to focus attention on important things is a defining characteristic of intelligence.'
 
 set -x PYTHONDONTWRITEBYTECODE True
 set -x EDITOR 'emacs -nw'
-#alias emacs 'emacs -nw'
+alias emacs 'emacs -nw'
 
 function fish_prompt
 	set_color $fish_color_cwd
