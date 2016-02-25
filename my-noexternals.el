@@ -21,10 +21,7 @@
 
 ;; org
 (setq org-directory "~/Dropbox/org/")
-(setq org-html-doctype "html5")
-(setq org-log-done 'time)
 (add-hook 'org-mode-hook (lambda () (visual-line-mode 1)))
-(setq org-ellipsis " ▼")
 
 (setq js-indent-level 2)
 
@@ -61,4 +58,5 @@
   (add-to-list 'default-frame-alist '(width . 85))
   (add-to-list 'default-frame-alist '(height . 40))
   (setq-default line-spacing .15)
+  (load-theme 'manoj-dark t)
   (setq show-paren-style 'expression))

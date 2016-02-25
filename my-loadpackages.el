@@ -4,6 +4,7 @@
 
 (require 'ido-vertical-mode)
 (ido-vertical-mode 1)
+(setq ido-vertical-define-keys 'C-n-and-C-p-only)
 
 (require 'auto-complete)
 (global-auto-complete-mode t)
@@ -15,12 +16,9 @@
 (global-display-theme-mode 1)
 
 (require 'beacon)
+(when window-system (beacon-mode 1))
 
 (require 'theme-looper)
-(theme-looper-set-theme-set (list 'manoj-dark 'light-blue 'organic-green 'hemisu-dark))
+(theme-looper-set-theme-set
+ (list 'manoj-dark 'light-blue 'organic-green 'Arise 'caroline))
 (global-set-key (kbd "C-|") 'theme-looper-enable-next-theme)
-
-;; gui
-(when window-system
-  (beacon-mode 1)
-  (load-theme 'manoj-dark t))
