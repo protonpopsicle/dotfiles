@@ -20,19 +20,13 @@
     caroline-theme
     ) "a list of packages to ensure are installed at launch.")
 
-;; method to check if all packages are installed
-(defun packages-installed-p ()
-  (loop for p in required-packages
-        when (not (package-installed-p p)) do (return nil)
-        finally (return t)))
-
-;; if not all packages are installed, check one by one and install the missing ones.
-(unless (packages-installed-p)
-  ;; check for new packages (package versions)
+(unless package-archive-contents
   (message "%s" "Emacs is now refreshing its package database...")
-  (package-refresh-contents)
-  (message "%s" " done.")
-  ;; install the missing packages
-  (dolist (p required-packages)
-    (when (not (package-installed-p p))
-      (package-install p))))
+  (package-refresh-contents))
+
+(defun ensure-packages (packages)
+  (dolist (package packages)
+    (unless (package-installed-p package)
+      (package-install package))))
+
+(ensure-packages required-packages)
