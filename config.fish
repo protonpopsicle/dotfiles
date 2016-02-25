@@ -1,24 +1,22 @@
-set -x PATH /usr/local/sbin $PATH
+set fish_greeting ''
+
 set -x PYTHONDONTWRITEBYTECODE True
 set -x EDITOR 'emacs -nw'
-set -x LEDGER_TERM 'aqua'
-set -x JAVA_HOME (/usr/libexec/java_home)
-
-set -x API_CONFIG ~/team15/api/local_settings.py
-set -x WEBAPP_CONFIG ~/team15/webapp/local_settings.py
-
 alias emacs 'emacs -nw'
 
 function fish_prompt
 	set_color $fish_color_cwd
-	echo -n (basename $PWD)
+	echo -n (prompt_pwd)
 	set_color normal
-	echo -n '$ '
+	echo -n ' > '
 end
 
-function fish_right_prompt
-	set_color  red
-	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \1/' | cut -c -22
-end
+source ~/local.fish
 
-source ~/secrets.fish
+# https://github.com/fish-shell/fish-shell/issues/1772
+# start X at login
+if status --is-login
+    if test -z "$DISPLAY" -a $XDG_VTNR -eq 1
+        exec startx -- -keeptty
+    end
+end
