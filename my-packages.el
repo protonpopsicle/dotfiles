@@ -13,9 +13,10 @@
     ido-vertical-mode
     auto-complete
     ledger-mode
+    rainbow-mode
+    beacon
     display-theme
     theme-looper
-    beacon
     organic-green-theme
     caroline-theme
     ) "a list of packages to ensure are installed at launch.")

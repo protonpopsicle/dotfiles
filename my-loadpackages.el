@@ -20,5 +20,5 @@
 
 (require 'theme-looper)
 (theme-looper-set-theme-set
- (list 'manoj-dark 'light-blue 'organic-green 'Arise 'caroline))
+ (list 'manoj-dark 'light-blue 'organic-green 'arise 'caroline))
 (global-set-key (kbd "C-|") 'theme-looper-enable-next-theme)
