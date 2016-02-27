@@ -2,7 +2,7 @@ set fish_greeting ''
 
 set -x PYTHONDONTWRITEBYTECODE True
 set -x EDITOR 'emacs -nw'
-alias emacs 'emacs -nw'
+#alias emacs 'emacs -nw'
 
 function fish_prompt
 	set_color $fish_color_cwd
