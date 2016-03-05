@@ -17,11 +17,12 @@ switch (uname)
     case Linux
 	    # https://github.com/fish-shell/fish-shell/issues/1772
 	    # start X at login
-	    if status --is-login
-		    if test -z "$DISPLAY" -a $XDG_VTNR -eq 1
-			    exec startx -- -keeptty
-		    end
-	    end
+#	    if status --is-login
+#		    if test -z "$DISPLAY" -a $XDG_VTNR -eq 1
+#			    exec startx -- -keeptty
+#		    end
+#	    end
+	    
 
     case Darwin
 	    # set -x PATH /usr/local/sbin $PATH
