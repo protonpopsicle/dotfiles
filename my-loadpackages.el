@@ -1,6 +1,11 @@
 ;; ~/.emacs.d/my-loadpackages.el
-;; loading package
-(load "~/.emacs.d/my-packages.el")
+
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(package-initialize)
 
 (require 'ido-vertical-mode)
 (ido-vertical-mode 1)
@@ -16,7 +21,7 @@
 (global-display-theme-mode 1)
 
 (require 'beacon)
-(when window-system (beacon-mode 1))
+(when (display-graphic-p) (beacon-mode 1))
 
 (require 'theme-looper)
 (theme-looper-set-theme-set

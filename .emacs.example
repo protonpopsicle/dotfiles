@@ -1,0 +1,7 @@
+(load "~/.emacs.d/my-noexternals.el")
+
+(setq inhibit-startup-echo-area-message "smeisburger")
+(setq ispell-program-name "aspell")
+(setq ispell-list-command "--list")
+
+(load "~/.emacs.d/my-loadpackages.el")
