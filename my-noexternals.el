@@ -55,4 +55,4 @@
 
 ;; keep dat shit out of .emacs
 (setq custom-file "~/.emacs.d/custom.el")
-(load custom-file 'noerror)
+;; (load custom-file 'noerror)

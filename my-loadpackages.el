@@ -1,5 +1,6 @@
 ;; ~/.emacs.d/my-loadpackages.el
 
+(autoload 'ensure-packages "~/.emacs.d/my-packages.el" "" t)
 (add-to-list 'auto-mode-alist '("ledger\.dat\\'" . ledger-mode))
 (global-set-key (kbd "C-|") 'theme-looper-enable-next-theme)
 
