@@ -26,8 +26,9 @@
 ;; TeX
 ;; (setq tex-run-command "xetex")
 ;; (setenv "PATH" (concat (getenv "PATH") ":/Library/TeX/texbin:/usr/local/git/bin:/usr/local/bin:/usr/local/sbin"))
-;; (add-to-list 'exec-path "/usr/local/bin")
 ;; (add-to-list 'exec-path "/usr/texbin")
+
+(add-to-list 'exec-path "/usr/local/bin")
 
 (global-auto-revert-mode 1)
 
@@ -40,10 +41,6 @@
 (ido-mode 1)
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 
-;; keep dat shit out of .emacs
-(setq custom-file "~/.emacs.d/custom.el")
-;; (load custom-file 'noerror)
-
 (setq whitespace-line-column 80) ; limit line length
 (setq whitespace-style '(face lines-tail))
 (add-hook 'prog-mode-hook 'whitespace-mode)
@@ -52,9 +49,10 @@
 (when (display-graphic-p)
   (set-fringe-mode 4)
   (tool-bar-mode -1)
-  ;; (add-to-list 'default-frame-alist '(width . 85))
-  ;; (add-to-list 'default-frame-alist '(height . 40))
   (setq-default line-spacing .15)
   ;; (load-theme 'manoj-dark t)
   (setq show-paren-style 'expression))
 
+;; keep dat shit out of .emacs
+(setq custom-file "~/.emacs.d/custom.el")
+(load custom-file 'noerror)
