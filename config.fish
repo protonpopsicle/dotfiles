@@ -1,5 +1,3 @@
-set fish_greeting 'The ability to focus attention on important things is a defining characteristic of intelligence.'
-
 set -x PYTHONDONTWRITEBYTECODE True
 set -x EDITOR 'emacs -nw'
 alias emacs 'emacs -nw'
@@ -25,6 +23,5 @@ switch (uname)
 	    
 
     case Darwin
-	    # set -x PATH /usr/local/sbin $PATH
-	    set -x LEDGER_TERM 'aqua'
+    	    set -x LEDGER_TERM 'aqua'
 end
