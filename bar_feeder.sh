@@ -5,8 +5,8 @@ clock() {
 }
 
 battery() {
-    capacity=`cat /sys/class/power_supply/BAT0/capacity`
-    satus=`cat /sys/class/power_supply/BAT0/status`
+    local capacity=`cat /sys/class/power_supply/BAT0/capacity`
+    local satus=`cat /sys/class/power_supply/BAT0/status`
 
     test "$status" = "Full" && echo -n '+' || echo -n '-'
     echo $capacity%
