@@ -12,16 +12,8 @@ end
 source ~/local.fish
 
 switch (uname)
-    case Linux
-	    # https://github.com/fish-shell/fish-shell/issues/1772
-	    # start X at login
-#	    if status --is-login
-#		    if test -z "$DISPLAY" -a $XDG_VTNR -eq 1
-#			    exec startx -- -keeptty
-#		    end
-#	    end
-	    
-
-    case Darwin
-    	    set -x LEDGER_TERM 'aqua'
+	case Linux
+    		set -x PATH /usr/bin/core_perl /usr/local/sbin /usr/local/bin /usr/bin 
+	case Darwin
+    		set -x LEDGER_TERM 'aqua'
 end
