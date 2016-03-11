@@ -1,12 +1,14 @@
 #!/bin/bash
 
 clock() {
+    echo "%{F#FF0}%{B#00F}"
     date '+%-l:%M %p'
 }
 
 battery() {
-    local capacity=`cat /sys/class/power_supply/BAT0/capacity`
-    local satus=`cat /sys/class/power_supply/BAT0/status`
+    local dir=/sys/class/power_supply/BAT0
+    capacity=`cat $dir/capacity`
+    satus=`cat $dir/status`
 
     test "$status" = "Full" && echo -n '+' || echo -n '-'
     echo $capacity%
@@ -17,15 +19,18 @@ network() {
         echo "up" || echo "down"
 }
 
-brightness() {
-    b=`cat /sys/class/backlight/acpi_video0/brightness`
-    max_b=`cat /sys/class/backlight/acpi_video0/max_brightness`
-    printf "%0.s-" $(seq 1 $b)
+backlight() {
+    local dir=/sys/class/backlight/acpi_video0
+    brightness=`cat $dir/brightness`
+    max_brightness=`cat $dir/max_brightness`
+    echo "%{B#000}%{F#0F0}"
+    printf "%0.s-" $(seq 1 $brightness)
+    echo "%{F#070}"
+    printf "%0.s-" $(seq 1 $max_brightness - $brightness)
 }
 
 while :; do
-    c1="%{c}%{F#FFFF00}%{B#0000FF}"
     end="%{F-}%{B-}"
-    echo "$c1 `brightness` `clock` `battery` `network` $end"
+    echo "${l} `brightness` ${r} `clock` `battery` `network` $end"
     sleep 1
 done
