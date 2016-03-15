@@ -1,13 +1,13 @@
 #!/bin/bash
 
 clock() {
-    date '+%-l:%M %p'
+    date '+%a %-l:%M %p'
 }
 
 battery() {
     local dir=/sys/class/power_supply/BAT0
-    capacity=`cat $dir/capacity`
-    satus=`cat $dir/status`
+    local capacity=`cat $dir/capacity`
+    local satus=`cat $dir/status`
 
     #test "$status" = "Full" && echo -n '+' || echo -n '-'
     echo $capacity%
@@ -15,7 +15,7 @@ battery() {
 
 network() {
     ping -c 1 8.8.8.8 >/dev/null 2>&1 && 
-        echo "up" || echo "down"
+        echo "↑" || echo "!"
 }
 
 meter() {
@@ -44,10 +44,7 @@ backlight() {
 }
 
 while :; do
-    end="%{F-}%{B-}"
-    c1="%{F#FF0}%{B#00F}"
-    c2="%{F#FFF}%{B#777}"
-    c3="%{F#F00}%{B#000}"
-    echo "%{l}`backlight`%{r}$c1 `clock` $c2 `battery` $c3 `network`$end"
+    # c0="%{F-}%{B-}" # resets color to default
+    echo "%{r}Net `network`    Bat `battery`    `clock` "
     sleep 1
 done

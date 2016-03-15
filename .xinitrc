@@ -35,8 +35,8 @@ fi
 setxkbmap -option ctrl:nocaps
 xbindkeys
 
-sh ~/.fehbg &
-sh ~/bar_feeder.sh | lemonbar -p &
+#sh ~/.fehbg &
+sh ~/bar_feeder.sh | lemonbar -p -f "profont-11" -B "#77000000" -F "#eee" &
 
 xcompmgr -c -C &
 
