@@ -15,7 +15,7 @@ battery() {
 
 network() {
     ping -c 1 8.8.8.8 >/dev/null 2>&1 && 
-        echo "↑" || echo "!"
+        echo "  " || echo "!!"
 }
 
 meter() {
@@ -45,6 +45,6 @@ backlight() {
 
 while :; do
     # c0="%{F-}%{B-}" # resets color to default
-    echo "%{r}Net `network`    Bat `battery`    `clock` "
+    echo "%{r}`network`  `battery`  `clock` "
     sleep 1
 done

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
@@ -32,12 +32,10 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
     unset f
 fi
 
+xsetroot -s "#303030"
 setxkbmap -option ctrl:nocaps
 xbindkeys
 
-#sh ~/.fehbg &
-sh ~/bar_feeder.sh | lemonbar -p -f "profont-11" -B "#77000000" -F "#eee" &
-
-xcompmgr -c -C &
+./bar_feeder.sh | lemonbar -p -f "terminus-9" -B "#000" -F "#fff" -d &
 
 exec openbox-session
