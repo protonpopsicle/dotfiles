@@ -10,7 +10,8 @@ battery() {
     local satus=`cat $dir/status`
 
     #test "$status" = "Full" && echo -n '+' || echo -n '-'
-    meter $capacity, 100
+    local val=$(printf "%2.f" `echo $capacity/10 | bc -l`)
+    meter $val 10
 }
 
 network() {
@@ -26,12 +27,12 @@ meter() {
     local fill2
 
     if [ $v != 0 ]; then
-        fill1=`printf "%0.s|" $(seq 1 $v)`
+        fill1=`printf "%0.s#" $(seq 1 $v)`
     fi
     if [ $diff != 0 ]; then
 	fill2=`printf "%0.s " $(seq 1 $diff)`
     fi
-    echo "[$fill1$fill2]"
+    echo "[%{F#0F0}$fill1%{F-}$fill2]"
 }
 
 backlight() {
@@ -42,7 +43,10 @@ backlight() {
 }
 
 while :; do
-    # c0="%{F-}%{B-}" # resets color to default
-    echo "%{r}`battery`   `clock` "
+    st="%{A:st -f 'Liberation Mono\:size=12' &:} st %{A}"
+    chromium="%{A:chromium &:} chromium %{A}"
+    emacs="%{A:emacs &:} emacs %{A}"
+    apps="$st$chromium$emacs"
+    echo "%{c}%{F#F0F}$apps%{F-}%{r}`battery`   `clock` "
     sleep 1
 done
