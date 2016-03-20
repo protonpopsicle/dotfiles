@@ -9,9 +9,9 @@ battery() {
     local capacity=`cat $dir/capacity`
     local satus=`cat $dir/status`
 
-    #test "$status" = "Full" && echo -n '+' || echo -n '-'
     local val=$(printf "%2.f" `echo $capacity/10 | bc -l`)
     meter $val 10
+    test "$status" = "Full" && echo -n '+' || echo -n ' '
 }
 
 network() {
@@ -43,10 +43,8 @@ backlight() {
 }
 
 while :; do
-    st="%{A:st -f 'Liberation Mono\:size=12' &:} st %{A}"
-    chromium="%{A:chromium &:} chromium %{A}"
-    emacs="%{A:emacs &:} emacs %{A}"
-    apps="$st$chromium$emacs"
-    echo "%{c}%{F#F0F}$apps%{F-}%{r}`battery`   `clock` "
+    st="%{A:st -f 'Mono-12' &:} st %{A}"
+    apps="$st"
+    echo "%{l}%{F#F0F}$apps%{F-}%{r}`battery`  `clock` "
     sleep 1
 done
