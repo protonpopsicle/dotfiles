@@ -11,7 +11,7 @@ battery() {
 
     local val=$(printf "%2.f" `echo $capacity/10 | bc -l`)
     meter $val 10
-    test "$status" = "Full" && echo -n '+' || echo -n ' '
+    # test "$status" = "Full" && echo -n '+' || echo -n ' '
 }
 
 network() {
@@ -45,6 +45,6 @@ backlight() {
 while :; do
     st="%{A:st -f 'Mono-12' &:} st %{A}"
     apps="$st"
-    echo "%{l}%{F#F0F}$apps%{F-}%{r}`battery`  `clock` "
+    echo "%{l}%{F#F0F}$apps%{F-}%{r}`battery`   `clock` "
     sleep 1
 done
