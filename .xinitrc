@@ -36,6 +36,6 @@ xsetroot -s "#303030"
 setxkbmap -option ctrl:nocaps
 xbindkeys
 
-./bar_feeder.sh | lemonbar -p -f "terminus-9" -B "#000" -F "#fff" -d | bash &
+./bar_feeder.sh | lemonbar -p -f "terminus-9" -B "#000" -F "#f98" -d | bash &
 
 exec openbox-session

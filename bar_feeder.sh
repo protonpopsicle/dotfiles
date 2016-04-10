@@ -7,11 +7,18 @@ clock() {
 battery() {
     local dir=/sys/class/power_supply/BAT0
     local capacity=`cat $dir/capacity`
-    local satus=`cat $dir/status`
+    local status=`cat $dir/status`    
 
-    local val=$(printf "%2.f" `echo $capacity/10 | bc -l`)
-    meter $val 10
-    # test "$status" = "Full" && echo -n '+' || echo -n ' '
+    local val=$(printf "%02s" $capacity)
+    #local val=$(printf "%2.f" `echo $capacity/20 | bc -l`)
+    #echo "`meter $val 5`"
+    #test "$status" = "Charging" && echo -n '+' || echo -n ' '
+    if [ "$status" = "Charging" ]
+    then
+ 	echo "[$val%  ]+"
+    else
+	echo "[$val%  ] "
+    fi
 }
 
 network() {
@@ -45,6 +52,6 @@ backlight() {
 while :; do
     st="%{A:st -f 'Mono-12' &:} st %{A}"
     apps="$st"
-    echo "%{l}%{F#F0F}$apps%{F-}%{r}`battery`   `clock` "
+    echo "%{l}%{F#F0F}$apps%{F-}%{r}`battery`  `clock` "
     sleep 1
 done
