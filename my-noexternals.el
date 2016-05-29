@@ -24,9 +24,9 @@
 ;; (setq js-indent-level 2)
 
 ;; TeX
-;; (setq tex-run-command "xetex")
-;; (setenv "PATH" (concat (getenv "PATH") ":/Library/TeX/texbin:/usr/local/git/bin:/usr/local/bin:/usr/local/sbin"))
-;; (add-to-list 'exec-path "/usr/texbin")
+(setq tex-run-command "xetex")
+(setenv "PATH" (concat (getenv "PATH") ":/Library/TeX/texbin"))
+(add-to-list 'exec-path "/usr/texbin")
 
 (add-to-list 'exec-path "/usr/local/bin")
 
@@ -41,7 +41,7 @@
 (ido-mode 1)
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 
-(setq whitespace-line-column 80) ; limit line length
+(setq whitespace-line-column 100) ; limit line length
 (setq whitespace-style '(face lines-tail))
 (add-hook 'prog-mode-hook 'whitespace-mode)
 
