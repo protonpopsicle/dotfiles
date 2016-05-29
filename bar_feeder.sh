@@ -13,11 +13,12 @@ battery() {
     #local val=$(printf "%2.f" `echo $capacity/20 | bc -l`)
     #echo "`meter $val 5`"
     #test "$status" = "Charging" && echo -n '+' || echo -n ' '
-    if [ "$status" = "Charging" ]
-    then
- 	echo "[$val%  ]+"
+    if [ "$status" = "Charging" ]; then
+ 	echo "[$val% +]"
+    elif [ "$status" = "Full" ]; then
+	echo "[full ]"
     else
-	echo "[$val%  ] "
+	echo "[$val%  ]"
     fi
 }
 
