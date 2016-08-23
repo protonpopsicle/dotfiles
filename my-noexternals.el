@@ -17,11 +17,12 @@
 (setq vc-handled-backends nil)
 (add-hook 'prog-mode-hook 'show-paren-mode)
 
-;; org
-;; (setq org-directory "~/Dropbox/org/")
-;; (add-hook 'org-mode-hook (lambda () (visual-line-mode 1)))
-
-;; (setq js-indent-level 2)
+(setq-default c-basic-offset 4)
+(c-set-offset 'case-label '+)
+(defun my-c-mode-hook ()
+  (setq indent-tabs-mode t)
+  (setq tab-width 4))
+(add-hook 'c-mode-common-hook 'my-c-mode-hook)
 
 ;; TeX
 (setq tex-run-command "xetex")
