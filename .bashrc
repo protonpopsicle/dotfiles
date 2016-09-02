@@ -3,6 +3,10 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
+if [ -f ~/git-completion.bash ]; then
+	source ~/git-completion.bash
+fi
+
 alias emacs="emacs -nw"
 
 export NACL_SDK_ROOT=~/Downloads/nacl_sdk/pepper_42
