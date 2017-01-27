@@ -27,3 +27,7 @@
   (theme-looper-set-theme-set
    (list 'manoj-dark 'light-blue 'organic-green 'arise 'caroline))
   )
+
+(with-eval-after-load "rainbow-mode"
+  (setq rainbow-x-colors nil)
+  )

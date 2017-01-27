@@ -8,7 +8,6 @@
 (setq initial-major-mode 'text-mode)
 
 (menu-bar-mode -1)
-(scroll-bar-mode -1)
 
 (delete-selection-mode 1)
 
@@ -51,6 +50,7 @@
   (set-fringe-mode 4)
   (tool-bar-mode -1)
   (setq-default line-spacing .15)
+  (scroll-bar-mode -1)
   ;; (load-theme 'manoj-dark t)
   (setq show-paren-style 'expression))
 
