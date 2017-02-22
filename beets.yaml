@@ -1,0 +1,12 @@
+directory: ~/musique
+library: ~/data/musiclibrary.blb
+import:
+    move: yes
+plugins: lastgenre fetchart embedart discogs
+lastgenre:
+    fallback: ''
+    canonical: true
+    count: 3
+fetchart:
+    maxwidth: 1000
+    auto: no
