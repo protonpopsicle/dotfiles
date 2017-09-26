@@ -10,7 +10,7 @@
     display-theme
     theme-looper
     organic-green-theme
-    caroline-theme
+    goose-theme
     ) "a list of packages to ensure are installed.")
 
 (unless package-archive-contents

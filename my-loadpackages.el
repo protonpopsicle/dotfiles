@@ -25,7 +25,7 @@
 
 (with-eval-after-load "theme-looper"
   (theme-looper-set-theme-set
-   (list 'manoj-dark 'light-blue 'organic-green 'arise 'caroline))
+   (list 'manoj-dark 'light-blue 'goose 'organic-green 'arise))
   )
 
 (with-eval-after-load "rainbow-mode"
