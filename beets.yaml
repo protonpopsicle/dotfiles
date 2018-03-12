@@ -1,12 +1,8 @@
-directory: ~/musique
-library: ~/data/musiclibrary.blb
+directory: /mnt/c/Users/smeis/Music/beets
 import:
     move: yes
-plugins: lastgenre fetchart embedart discogs
+
+plugins: discogs lastgenre
+
 lastgenre:
-    fallback: ''
-    canonical: true
     count: 3
-fetchart:
-    maxwidth: 1000
-    auto: no

@@ -12,6 +12,8 @@
     organic-green-theme
     ) "a list of packages to ensure are installed.")
 
+(package-initialize)
+
 (unless package-archive-contents
   (message "%s" "Emacs is now refreshing its package database...")
   (package-refresh-contents))
