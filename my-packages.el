@@ -10,7 +10,6 @@
     display-theme
     theme-looper
     organic-green-theme
-    goose-theme
     ) "a list of packages to ensure are installed.")
 
 (package-initialize)

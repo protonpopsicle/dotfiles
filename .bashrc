@@ -11,5 +11,6 @@ sshfix() {
 
 alias emacs="emacs -nw"
 export EDITOR="emacs -nw"
+export AWS_DEFAULT_PROFILE=avplatformadmin
 bind 'set mark-symlinked-directories on'
 export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"
