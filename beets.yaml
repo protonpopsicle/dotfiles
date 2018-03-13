@@ -2,7 +2,10 @@ directory: /mnt/c/Users/smeis/Music/beets
 import:
     move: yes
 
-plugins: discogs lastgenre
+plugins: discogs lastgenre convert
 
 lastgenre:
     count: 3
+convert:
+    format: alac
+    dest: /mnt/c/Users/smeis/Desktop
