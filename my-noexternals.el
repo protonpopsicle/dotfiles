@@ -3,9 +3,9 @@
 (setq backup-inhibited t)
 (setq auto-save-default nil)
 
-(setq inhibit-startup-screen t)
-(setq initial-scratch-message nil)
-(setq initial-major-mode 'text-mode)
+;; (setq inhibit-startup-screen t)
+;; (setq initial-scratch-message nil)
+;; (setq initial-major-mode 'text-mode)
 
 (menu-bar-mode -1)
 
@@ -49,7 +49,7 @@
 (when (display-graphic-p)
   (set-fringe-mode 4)
   (tool-bar-mode -1)
-  (setq-default line-spacing .15)
+  ;; (setq-default line-spacing .15)
   (scroll-bar-mode -1)
   ;; (load-theme 'manoj-dark t)
   (setq show-paren-style 'expression))
