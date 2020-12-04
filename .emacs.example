@@ -1,7 +1,26 @@
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
+
 (load "~/.emacs.d/my-noexternals.el" nil t)
 
-(setq inhibit-startup-echo-area-message "smeisburger")
-; (setq ispell-program-name "aspell")
-; (setq ispell-list-command "--list")
+(setq inhibit-startup-echo-area-message "scottmeisburger")
+(setq ispell-program-name "aspell")
+(setq ispell-list-command "--list")
+(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
+
+;; manually install:
+
+;; ido-vertical-mode
+;; auto-complete
+;; rainbow-mode
+;; beacon
+;; display-theme
+;; theme-looper
 
 (load "~/.emacs.d/my-loadpackages.el" nil t)

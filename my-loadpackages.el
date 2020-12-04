@@ -1,12 +1,3 @@
-;; (autoload 'ensure-packages "~/.emacs.d/my-packages.el" "" t)
-(require 'package)
-(with-eval-after-load "package"
-  (add-to-list 'package-archives
-             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
-  )
-(package-initialize)
-
-(add-to-list 'auto-mode-alist '("ledger\.dat\\'" . ledger-mode))
 (global-set-key (kbd "C-|") 'theme-looper-enable-next-theme)
 
 (add-hook 'after-init-hook
@@ -22,8 +13,8 @@
   )
 
 (with-eval-after-load "theme-looper"
-  (theme-looper-set-theme-set
-   (list 'manoj-dark 'light-blue 'arise))
+  (theme-looper-set-favorite-themes
+   '(manoj-dark light-blue arise))
   )
 
 (with-eval-after-load "rainbow-mode"

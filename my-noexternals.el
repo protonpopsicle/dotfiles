@@ -34,6 +34,8 @@
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
+(setq auto-indent-newline-function 'newline-and-indent) 
+
 ;; mode line settings
 (line-number-mode 1)
 (column-number-mode 1)
